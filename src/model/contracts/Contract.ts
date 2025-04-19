@@ -5,6 +5,7 @@ import {Effect} from "../cards/Effect";
 import { TriggeredAbility } from "../cards/TriggeredAbility";
 
 export interface Contract {
+    cardNumber?: string,
     name: TranslatedString,
     text?: TranslatedString,
     flavorText?: TranslatedString,

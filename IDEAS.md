@@ -21,3 +21,9 @@ Piggybank (2$)
 
 AI assistant
     Can only be assigned to backoffice employee. That employee can be assigned to a project is if they were a programmer. When played, roll the ai dice and add it's modifier to this card. +4 technical skill, +2 organization, -2 creativity
+
+Mind Manipulator - item
+    Add or Subtract one from any number on the employee this is attached to
+
+Alternative win condition: AI singularity
+    20-20-20 requireiment - Flip a coin after predicting it's outcome: if successful, you win the game. If not, everyone loses.
