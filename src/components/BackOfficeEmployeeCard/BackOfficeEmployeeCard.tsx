@@ -1,6 +1,10 @@
 import React from 'react';
 import styles from './BackOfficeEmployeeCard.module.css';
-import { Person } from '../../../model/cards/Person';
+import { Person } from '../../model/cards/Person';
+import classNames from 'classnames';
+import OutlinedBox from '../common/OutlinedBox';
+import CardHeader from '../common/CardHeader';
+import CostDisplay from '../common/CostDisplay';
 
 interface BackOfficeEmployeeCardProps {
   employee: Person
@@ -9,46 +13,42 @@ interface BackOfficeEmployeeCardProps {
 const BackOfficeEmployeeCard: React.FC<BackOfficeEmployeeCardProps> = ({ employee }) => {
   return (
     <div className={styles.card}>
-      {/* Header with Job Title and Cost */}
-      <div className={styles.cardHeader}>
-        <div className={styles.jobTitle}>{employee.title?.en}</div>
-        <div className={styles.price}>${employee.cost}</div>
-      </div>
+      <CardHeader
+        left={<div className={styles.jobTitle}>{employee.title?.en}</div>}
+        right={<CostDisplay cost={employee.cost} />}
+      />
 
       {/* Content Section */}
       <div className={styles.content}>
         <div className={styles.infoLeft}>
-          {/* Name Information */}
-          <div className={styles.outlinedBox}>
-            <label htmlFor="name">Name</label>
+          {/* Description (Merged Name & Background) */}
+          <OutlinedBox
+            label="Description"
+            className={classNames(styles.outlinedBox, styles.backgroundBox)}
+          >
             <div className={styles.personalInfo}>
               <div className={styles.name}>{employee.name?.en}</div>
-            </div>
-          </div>
-
-          {/* Background Information */}
-          <div className={`${styles.outlinedBox} ${styles.backgroundBox}`}>
-            <label htmlFor="background">Background</label>
-            <div className={styles.personalInfo}>
               <div className={styles.flavorText}>{employee.flavorText?.en}</div>
             </div>
-          </div>
+          </OutlinedBox>
         </div>
 
         {/* Photo */}
         <div className={styles.photo}>
           <img
-            src={"images/backoffice/"+employee.photoSrc}
+            src={"images/backoffice/" + employee.photoSrc}
             alt={'Employee Headshot'}
           />
         </div>
       </div>
 
-      {/* Description */}
-      <div className={`${styles.outlinedBox} ${styles.descriptionBox}`}>
-        <label htmlFor="description">Description</label>
+      {/* Abilities (Formerly Description) */}
+      <OutlinedBox
+        label="Abilities"
+        className={classNames(styles.outlinedBox, styles.descriptionBox)}
+      >
         <div className={styles.description}>{employee.text?.en}</div>
-      </div>
+      </OutlinedBox>
 
       {/* No Skills Section */}
     </div>

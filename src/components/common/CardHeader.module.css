@@ -1,0 +1,27 @@
+.cardHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 5px;
+    width: 100%;
+}
+
+.leftSection {
+    display: flex;
+    justify-content: flex-start;
+    width: auto;
+}
+
+.centerSection {
+    display: flex;
+    justify-content: center;
+    flex: 1;
+    /* more space for title */
+    text-align: center;
+}
+
+.rightSection {
+    display: flex;
+    justify-content: flex-end;
+    width: auto;
+}

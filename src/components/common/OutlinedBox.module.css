@@ -1,0 +1,29 @@
+.outlinedBox {
+    position: relative;
+    padding: 10px;
+    margin-top: 10px;
+    border: 1px solid #ccc;
+    /* Default, override in parent */
+    border-radius: 4px;
+    background-color: transparent;
+    /* Default, override in parent */
+}
+
+.label {
+    position: absolute;
+    top: -8px;
+    left: 12px;
+    font-size: 10px;
+    padding: 0 4px;
+    height: 8px;
+    line-height: 8px;
+    /* Ensure vertical centering/alignment matches original */
+    border: 1px solid #ccc;
+    /* Default */
+    border-radius: 4px 4px 0 0;
+    border-bottom: 0;
+    color: inherit;
+    /* Inherit color from parent context if needed */
+    background-color: inherit;
+    /* Should match the box bg */
+}

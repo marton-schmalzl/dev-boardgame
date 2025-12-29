@@ -1,0 +1,18 @@
+.skillBar {
+    display: flex;
+    gap: 2px;
+    flex-grow: 1;
+}
+
+.pip {
+    height: 10px;
+    background-color: #e0e0e0;
+    /* Default empty color */
+    border-radius: 2px;
+    flex-grow: 1;
+}
+
+.filled {
+    background-color: #8e24aa;
+    /* Default filled color, override in parent if needed */
+}
