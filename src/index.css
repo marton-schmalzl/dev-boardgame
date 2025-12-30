@@ -1,3 +1,76 @@
+@import "tailwindcss";
+
+@theme {
+  --spacing-card-w: 127mm;
+  --spacing-card-h: 88.9mm;
+  --spacing-std-card-w: 63.5mm;
+  --spacing-std-card-h: 88.9mm;
+  --font-mono: "Iosevka Web", monospace;
+
+  /* Feature Family */
+  --color-feature: #78909c;
+  --color-feature-foreground: #ffffff;
+  --color-feature-text: #37474f;
+  --color-feature-border: #b0bec5;
+  --color-feature-soft: #f5f5f5;
+  --color-feature-muted: #bdbdbd;
+
+  /* Technology Family */
+  --color-tech: #546e7a;
+  --color-tech-foreground: #ffffff;
+  --color-tech-text: #37474f;
+  --color-tech-border: #90a4ae;
+  --color-tech-soft: #eceff1;
+  --color-tech-muted: #b0bec5;
+
+  /* Item Family (Yellow) */
+  --color-item: #FBC02D;
+  --color-item-foreground: #ffffff;
+  --color-item-text: #F9A825;
+  /* Darker Yellow (800) for text legibility vs 700 */
+  --color-item-border: #FFF9C4;
+  --color-item-soft: #FFFDE7;
+  --color-item-muted: #FFF9C4;
+
+  /* Employee Family (Purple) */
+  --color-employee: #8e24aa;
+  --color-employee-foreground: #ffffff;
+  --color-employee-text: #6a1b9a;
+  --color-employee-border: #e1bee7;
+  --color-employee-soft: #f3e5f5;
+  --color-employee-muted: #e1bee7;
+
+  /* Backoffice Family (Green) */
+  --color-backoffice: #2E7D32;
+  --color-backoffice-foreground: #ffffff;
+  --color-backoffice-text: #1B5E20;
+  /* Darker Green (900) for better contrast */
+  --color-backoffice-border: #C8E6C9;
+  --color-backoffice-soft: #E8F5E9;
+  --color-backoffice-muted: #C8E6C9;
+}
+
+/* Gradients - Defined as standard utility classes */
+.bg-feature-gradient {
+  background-image: linear-gradient(135deg, #f5f5f5 0%, #bdbdbd 100%);
+}
+
+.bg-tech-gradient {
+  background-image: linear-gradient(135deg, #eceff1 0%, #b0bec5 100%);
+}
+
+.bg-item-gradient {
+  background-image: linear-gradient(135deg, #FFFDE7 0%, #FFF9C4 100%);
+}
+
+.bg-employee-gradient {
+  background-image: linear-gradient(135deg, #f3e5f5 0%, #e1bee7 100%);
+}
+
+.bg-backoffice-gradient {
+  background-image: linear-gradient(135deg, #E8F5E9 0%, #C8E6C9 100%);
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',

@@ -1,11 +1,10 @@
 import React from 'react';
-import styles from './FeatureCard.module.css';
 import { Stats } from '../../model/Stats';
 import { Feature } from '../../model/contracts/Contract';
-import OutlinedBox from '../common/OutlinedBox';
+import OutlinedBox from '../ui/OutlinedBox';
+import { Card } from '../ui/Card';
 import CardHeader from '../common/CardHeader';
 import SkillBar from '../common/SkillBar';
-import classNames from 'classnames';
 
 interface FeatureCardProps {
   feature: Feature;
@@ -19,71 +18,82 @@ const skillIcons: { [key in keyof Stats]: string } = {
 
 const FeatureCard: React.FC<FeatureCardProps> = ({ feature }) => {
   return (
-    <div className={styles.card}>
+    <Card variant="feature">
       {/* Row 1: Header (Spans 2 Columns) */}
-      <div className={styles.headerRow}>
+      <div className="col-span-2 w-full">
         <CardHeader
-          left={<div className={styles.storyPoints}>{feature.storyPoints}</div>}
-          center={<div className={styles.featureName}>{feature.name.en}</div>}
+          left={
+            <div className="bg-feature text-feature-foreground px-2 py-[2px] rounded font-bold">
+              {feature.storyPoints}
+            </div>
+          }
+          center={
+            <div className="text-xl font-bold text-feature-text truncate">
+              {feature.name.en}
+            </div>
+          }
         />
       </div>
 
       {/* Row 2 Left: Effect */}
-      <div className={styles.topLeft}>
+      <div className="row-start-2 col-start-1 flex flex-col min-w-0 min-h-0">
         <OutlinedBox
           label="Effect"
-          className={classNames(styles.outlinedBox, styles.effectBox)}
+          variant="feature"
+          className=""
         >
-          <div className={styles.descriptionText}>
+          <div className="text-sm text-slate-800">
             {feature.effectDescription?.en}
           </div>
         </OutlinedBox>
       </div>
 
       {/* Row 2 Right: Image */}
-      <div className={styles.topRight}>
+      <div className="row-start-2 col-start-2 h-full aspect-square rounded-[5px] overflow-hidden border border-blue-200 min-w-0 min-h-0 bg-white">
         <img
+          // Assuming images path relative to public
           src={'images/features/' + feature.photoSrc}
           alt={'Feature Illustration'}
+          className="h-full w-full object-cover block"
         />
       </div>
 
       {/* Row 3 Left: Flavor Text */}
-      <div className={styles.bottomLeft}>
+      <div className="row-start-3 col-start-1 flex flex-col min-w-0 min-h-0">
         <OutlinedBox
           label="Flavor Text"
-          className={classNames(styles.outlinedBox, styles.flavorBox)}
+          variant="feature"
+          className=""
         >
-          <div className={styles.flavorText}>
+          <div className="text-xs italic text-gray-600">
             {feature.flavorText?.en || ''}
           </div>
         </OutlinedBox>
       </div>
 
       {/* Row 3 Right: Required Skills */}
-      <div className={styles.bottomRight}>
-        <div className={styles.skillContainer}>
-          <label className={styles.skillContainerLabel}>Required Skills</label>
-          <div className={styles.skills}>
+      <div className="row-start-3 col-start-2 flex flex-col justify-center min-w-0 min-h-0">
+        <OutlinedBox label="Required Skills" variant="feature" className="flex flex-col justify-center h-full">
+          <div className="flex flex-col">
             {Object.entries(feature.requiredSkills).map(([skillName, level]) => (
-              <div className={styles.skillCategory} key={skillName}>
-                <div className={styles.skillIconContainer}>
-                  <span className={styles.skillIcon}>
+              <div className="flex items-center" key={skillName}>
+                <div className="w-[30px] flex items-center justify-center">
+                  <span className="text-base text-slate-600">
                     {skillIcons[skillName as keyof Stats]}
                   </span>
                 </div>
                 <SkillBar
                   level={level as number}
                   maxLevel={10}
-                  filledColor="#546e7a"
-                  emptyColor="#b0bec5"
+                  variant="feature"
                 />
               </div>
             ))}
           </div>
-        </div>
+        </OutlinedBox>
       </div>
-    </div>
+
+    </Card >
   );
 };
 
