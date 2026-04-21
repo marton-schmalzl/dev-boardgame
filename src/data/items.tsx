@@ -2,6 +2,14 @@ import { Stats } from "../model/Stats";
 import { Item } from "../model/cards/Item";
 import { TaskCompletion, TechAssignment } from "../model/cards/TriggeredAbility";
 import { StatBonus } from "../model/cards/Effect";
+import { Icons } from "../icons";
+import React from "react";
+
+const IconSpan = ({ children }: { children: React.ReactNode }) => (
+    <span className="inline-flex align-middle items-center justify-center translate-y-[-1px]">
+        {children}
+    </span>
+);
 
 export const items: Item[] = [
     {
@@ -37,7 +45,7 @@ export const items: Item[] = [
     {
         name: { en: 'Top hat' },
         effects: [{ effectType: 'BUDGET', value: 1 }],
-        text: { en: "➕💲" },
+        text: { en: <span>➕<IconSpan><Icons.Budget size={14} /></IconSpan></span> },
         flavorText: {},
         cost: 1,
         skills: { creativity: 0, knowledge: 0, organization: 0 },
@@ -51,7 +59,7 @@ export const items: Item[] = [
             triggerTypes: [new TechAssignment(true)],
             effect: { effectType: new StatBonus(4, 0, 0) }
         }],
-        text: { en: "➕⚙️⚙️⚙️⚙️ when assigned to an Open Source Assignment" },
+        text: { en: <span>➕<IconSpan><Icons.Settings size={14} /></IconSpan><IconSpan><Icons.Settings size={14} /></IconSpan><IconSpan><Icons.Settings size={14} /></IconSpan><IconSpan><Icons.Settings size={14} /></IconSpan> when assigned to an Open Source Assignment</span> },
         flavorText: { en: "Works particularly well on rust developers" },
         cost: 1,
         skills: { creativity: 0, knowledge: 0, organization: 0 },
@@ -76,7 +84,7 @@ export const items: Item[] = [
         name: { en: 'Investment portfolio' },
         effects: [{ effectType: 'BUDGET', value: 1 }],
         triggeredAbilities: [{ triggerTypes: ['DESTROY'], effect: { effectType: 'BUDGET', value: 3 } }],
-        text: { en: "➕💲 Destroy this card to gain ➕💲💲💲" },
+        text: { en: <span>➕<IconSpan><Icons.Budget size={14} /></IconSpan> Destroy this card to gain ➕<IconSpan><Icons.Budget size={14} /></IconSpan><IconSpan><Icons.Budget size={14} /></IconSpan><IconSpan><Icons.Budget size={14} /></IconSpan></span> },
         flavorText: { en: "Stonks only go up 📈" },
         cost: 4,
         skills: { creativity: 0, knowledge: 0, organization: 0 },
@@ -86,7 +94,7 @@ export const items: Item[] = [
     {
         name: { en: 'Piggy bank' },
         triggeredAbilities: [{ triggerTypes: ['DESTROY'], effect: { effectType: 'BUDGET', value: 3 } }],
-        text: { en: "➕💲 Destroy this card to gain ➕💲💲💲" },
+        text: { en: <span>➕<IconSpan><Icons.Budget size={14} /></IconSpan> Destroy this card to gain ➕<IconSpan><Icons.Budget size={14} /></IconSpan><IconSpan><Icons.Budget size={14} /></IconSpan><IconSpan><Icons.Budget size={14} /></IconSpan></span> },
         flavorText: {},
         cost: 2,
         skills: { creativity: 0, knowledge: 0, organization: 0 },
@@ -96,7 +104,7 @@ export const items: Item[] = [
     {
         name: { en: 'Beanbag chair' },
         flavorText: {},
-        text: { en: "➕⭐ at the end of the game" },
+        text: { en: <span>➕<IconSpan><Icons.Prestige size={14} /></IconSpan> at the end of the game</span> },
         cost: 2,
         skills: { creativity: 0, knowledge: 0, organization: 0 },
         prestige: 2,
@@ -105,7 +113,7 @@ export const items: Item[] = [
     {
         name: { en: 'Foosball table' },
         flavorText: {},
-        text: { en: "➕⭐⭐⭐ at the end of the game" },
+        text: { en: <span>➕<IconSpan><Icons.Prestige size={14} /></IconSpan><IconSpan><Icons.Prestige size={14} /></IconSpan><IconSpan><Icons.Prestige size={14} /></IconSpan> at the end of the game</span> },
         cost: 4,
         skills: { creativity: 0, knowledge: 0, organization: 0 },
         prestige: 5,

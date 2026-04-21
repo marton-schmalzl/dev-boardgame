@@ -1,4 +1,6 @@
+import { ReactNode } from "react";
+
 export default interface TranslatedString {
-    hu?: string;
-    en?: string;
+    hu?: ReactNode;
+    en?: ReactNode;
 }

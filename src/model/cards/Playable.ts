@@ -1,6 +1,6 @@
 import { Stats } from "../Stats";
 import TranslatedString from "../TranslatedString";
-import {Effect} from "./Effect";
+import { Effect } from "./Effect";
 import { TriggeredAbility } from "./TriggeredAbility";
 
 export interface Playable {
@@ -14,5 +14,4 @@ export interface Playable {
     dismissible?: boolean;
     dismissEffects?: Effect[];
     photoSrc?: string;
-
 }

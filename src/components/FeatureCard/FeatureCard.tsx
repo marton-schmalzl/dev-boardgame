@@ -4,16 +4,17 @@ import { Feature } from '../../model/contracts/Contract';
 import OutlinedBox from '../ui/OutlinedBox';
 import { Card } from '../ui/Card';
 import CardHeader from '../common/CardHeader';
-import SkillBar from '../common/SkillBar';
+import SkillRow from '../common/SkillRow';
+import { Icons } from '../../icons';
 
 interface FeatureCardProps {
   feature: Feature;
 }
 
-const skillIcons: { [key in keyof Stats]: string } = {
-  knowledge: '⚙️',
-  organization: '📋',
-  creativity: '💡',
+const skillIcons: { [key in keyof Stats]: React.ElementType } = {
+  knowledge: Icons.Knowledge,
+  organization: Icons.Organization,
+  creativity: Icons.Creativity,
 };
 
 const FeatureCard: React.FC<FeatureCardProps> = ({ feature }) => {
@@ -76,18 +77,14 @@ const FeatureCard: React.FC<FeatureCardProps> = ({ feature }) => {
         <OutlinedBox label="Required Skills" variant="feature" className="flex flex-col justify-center h-full">
           <div className="flex flex-col">
             {Object.entries(feature.requiredSkills).map(([skillName, level]) => (
-              <div className="flex items-center" key={skillName}>
-                <div className="w-[30px] flex items-center justify-center">
-                  <span className="text-base text-slate-600">
-                    {skillIcons[skillName as keyof Stats]}
-                  </span>
-                </div>
-                <SkillBar
-                  level={level as number}
-                  maxLevel={10}
-                  variant="feature"
-                />
-              </div>
+              <SkillRow
+                key={skillName}
+                skillName={skillName}
+                level={level as number}
+                variant="feature"
+                icon={skillIcons[skillName as keyof Stats]}
+                maxLevel={10}
+              />
             ))}
           </div>
         </OutlinedBox>

@@ -4,16 +4,17 @@ import { Technology } from '../../model/contracts/Contract';
 import { Card } from '../ui/Card';
 import OutlinedBox from '../ui/OutlinedBox';
 import CardHeader from '../common/CardHeader';
-import SkillBar from '../common/SkillBar';
+import SkillRow from '../common/SkillRow';
+import { Icons } from '../../icons';
 
 interface TechnologyCardProps {
   technology: Technology;
 }
 
-const skillIcons: { [key in keyof Stats]: string } = {
-  knowledge: '⚙️',
-  organization: '📋',
-  creativity: '💡',
+const skillIcons: { [key in keyof Stats]: React.ElementType } = {
+  knowledge: Icons.Knowledge,
+  organization: Icons.Organization,
+  creativity: Icons.Creativity,
 };
 
 const TechnologyCard: React.FC<TechnologyCardProps> = ({ technology }) => {
@@ -36,7 +37,7 @@ const TechnologyCard: React.FC<TechnologyCardProps> = ({ technology }) => {
             technology.openSourcePrestige ? (
               <div className="text-tech-text font-bold flex items-center gap-1">
                 <span role="img" aria-label="Open Source Prestige">
-                  🌐
+                  <Icons.Prestige size={16} />
                 </span>{' '}
                 {technology.openSourcePrestige}
               </div>
@@ -79,14 +80,14 @@ const TechnologyCard: React.FC<TechnologyCardProps> = ({ technology }) => {
           <div className="flex flex-col">
             {Object.entries(technology.requiredSkills).map(
               ([skillName, level]) => (
-                <div className="flex items-center" key={skillName}>
-                  <div className="w-[30px] flex items-center justify-center">
-                    <span className="text-base text-slate-600">
-                      {skillIcons[skillName as keyof Stats]}
-                    </span>
-                  </div>
-                  <SkillBar level={level as number} maxLevel={10} variant="tech" />
-                </div>
+                <SkillRow
+                  key={skillName}
+                  skillName={skillName}
+                  level={level as number}
+                  variant="tech"
+                  icon={skillIcons[skillName as keyof Stats]}
+                  maxLevel={10}
+                />
               )
             )}
           </div>

@@ -26,19 +26,19 @@ import FeatureCard from './components/FeatureCard/FeatureCard';
 const App: React.FC = () => (
     <div className='wrapper'>
         <section>
-            {employees.map((e, index) => <EmployeeCard key={e.name?.en || index} employee={e} />)}
+            {employees.map((e, index) => <EmployeeCard key={index} employee={e} />)}
         </section>
         <section>
-            {backoffice.map((e, index) => <BackOfficeEmployeeCard key={e.name?.en || index} employee={e} />)}
+            {backoffice.map((e, index) => <BackOfficeEmployeeCard key={index} employee={e} />)}
         </section>
         <section>
-            {items.map((e, index) => <ItemCard key={e.name?.en || index} item={e} />)}
+            {items.map((e, index) => <ItemCard key={index} item={e} />)}
         </section>
         <section>
-            {tecnical_contracts.map((e, index) => <TechnologyCard key={e.name?.en || index} technology={e} />)}
+            {tecnical_contracts.map((e, index) => <TechnologyCard key={index} technology={e} />)}
         </section>
         <section>
-            {functional_contracts.map((e, index) => <FeatureCard key={e.name?.en || index} feature={e} />)}
+            {functional_contracts.map((e, index) => <FeatureCard key={index} feature={e} />)}
         </section>
     </div>
 );
