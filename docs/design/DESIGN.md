@@ -41,52 +41,85 @@ projects. Goal: collect the most **PRESTIGE** by the end of the game.
 
 ### 2.1. Per-player components
 
-- **Starter deck**: 1 CEO + 9 interns (5 Dev Interns + 4 HR Interns,
-  placeholder ratio — DDR-0012).
-- **Project Track marker**: at the starting space (Track described in §4).
+- **Starter deck**: 1 CEO + 9 interns (DDR-0012). Default split:
+  5 Dev Interns + 4 HR Interns — placeholder, see
+  [open-questions.md → Dev / HR ratio](open-questions.md#dev-intern--hr-intern-ratio).
+- **Project Track marker**: a personal marker placed on the shared Project
+  Track at the starting space (Track described in §4).
 - **Play area**: holds cards played this turn, employees assigned to
   assignments, and private Technology cards.
 - **Discard pile** and **deck**: where played / used cards go.
 
 ### 2.2. Shared components
 
-- **Hire market** (DDR-0003), 5 rows:
-  - Junior Production (4 slots, placeholder)
-  - Senior Production (3 slots, placeholder)
-  - Junior Admin (4 slots, placeholder)
-  - Senior Admin (3 slots, placeholder)
+- **Hire market** (DDR-0003), 5 rows. Slot counts are placeholders, see
+  [open-questions.md → Hire market slots](open-questions.md#hire-market-slots-per-row):
+  - Junior Production (default 4 slots)
+  - Senior Production (default 3 slots)
+  - Junior Admin (default 4 slots)
+  - Senior Admin (default 3 slots)
   - Prestige Employee (1 slot — DDR-0009)
-- **Item market**: 2 slots, from a shared deck (DDR-0003, placeholder).
-- **Assignment market**: 3 Feature slots + 3 Technology slots, from two
-  separate decks (DDR-0003).
-- **Open Source Technology zone**: a horizontal column where published
-  techs overlap each other (DDR-0010). Empty at start.
-- **Project Track reference card** (shared reference for the non-linear
-  scale).
+- **Item market** (DDR-0003): default 2 slots, from a shared deck —
+  placeholder, see
+  [open-questions.md → Item market](open-questions.md#item-market).
+- **Assignment market** (DDR-0003): 3 Feature slots + 3 Technology slots,
+  from two separate decks — placeholder, see
+  [open-questions.md → Assignment market](open-questions.md#assignment-market).
+- **Open Source Technology zone** (DDR-0010): a horizontal column where
+  published techs overlap each other. Empty at start.
+- **Project Track reference card**: a shared reference for the non-linear
+  scale (DDR-0004; values in
+  [open-questions.md → Project Track scale](open-questions.md#project-track-scale)).
 - **Prestige tracker** per player (a marker on a track, or written down).
 
 ---
 
 ## 3. Setup
 
-1. Each player gets **1 CEO + 9 interns** (DDR-0012). Shuffles, places face
-   down as their deck.
-2. Draws an opening hand of **5 employees** (see §5.4.).
-3. Project Track marker on the starting space.
-4. Hire market filled from the appropriate decks (see §2.2).
-5. Item market filled (2 slots).
-6. Assignment market: 3 Feature cards + 3 Technology cards in the middle, in
-   two separate rows.
-7. Open Source Technology zone empty.
-8. Prestige tracker at 0 for everyone.
-9. Pick a starting player (age / last deploy / die roll — free).
+The shared market layout (DDR-0003) and the Open Source zone (DDR-0010) are
+laid out on the table; each player gets their own starter deck (DDR-0012)
+and their own Project Track marker.
+
+1. **Place the Project Track reference card** in the middle of the table.
+   Each player puts their personal marker on **space 1** (the starting
+   space).
+2. **Place the Open Source Technology zone**: a clear, horizontal area
+   next to the assignment market. Empty at start.
+3. **Build the Prestige Employee deck**: shuffle ~10 copies of the single
+   Prestige Employee card (DDR-0009; copy count is placeholder, see
+   [open-questions.md → Prestige Employee cost / value](open-questions.md#prestige-employee-cost--value)).
+   Reveal the top card into the **1-slot Prestige Employee market**.
+4. **Build and fill the Hire market** rows from the corresponding decks
+   (placeholder slot counts in §2.2):
+   - Junior Production deck → fill 4 slots.
+   - Senior Production deck → fill 3 slots.
+   - Junior Admin deck → fill 4 slots.
+   - Senior Admin deck → fill 3 slots.
+   If a hire deck has fewer cards than its slot count, fill what is
+   available; empty slots stay empty (no replacement).
+5. **Build and fill the Item market**: shuffle the item deck and reveal
+   2 cards into the item market.
+6. **Build and fill the Assignment market**: shuffle the Feature deck and
+   the Technology deck **separately**; reveal 3 Features and 3
+   Technologies into two distinct rows.
+7. **Each player builds their starter deck**: take 1 CEO and 9 interns
+   (default 5 Dev + 4 HR), shuffle them face-down. This is your starter
+   deck.
+8. **Each player draws an opening hand of 5 employees** from the top of
+   their starter deck (the starter deck contains no items, so the regular
+   "items don't count against the limit" rule of §5.4 is trivially
+   satisfied).
+9. **Set the Prestige tracker to 0** for every player.
+10. **Pick a starting player** by any agreed-upon method (age, last
+    deploy to production, die roll, …).
 
 ---
 
 ## 4. Project Track and scoring
 
-The **Project Track** is a non-linear prestige scale (DDR-0004). MVP
-placeholder scale:
+The **Project Track** is a non-linear prestige scale (DDR-0004). The MVP
+placeholder scale below is tunable; see
+[open-questions.md → Project Track scale](open-questions.md#project-track-scale):
 
 ```
 Space:    1  2  3  4  5  6  7  8  9 10 11 12+
@@ -145,11 +178,12 @@ as the cards allow**:
   once per turn unless the card says otherwise).
 
 #### Use Budget — Buy
-- Spend generated BUDGET to buy from the markets:
+- Spend generated BUDGET to buy from the shared markets (DDR-0003):
   - Hire market: a new employee → discard pile (default), or to the top of
     the deck via a special ability.
   - Item market: a new item → discard pile.
-  - Prestige Employee slot: expensive, no in-game effect, end-game prestige.
+  - Prestige Employee slot (DDR-0009): expensive, no in-game effect,
+    end-game prestige.
 - An emptied slot **immediately** refills from the corresponding deck.
 - If a hire deck runs out, that slot stays empty (no replacement).
 
@@ -172,9 +206,9 @@ as the cards allow**:
   - **Feature**: the completing player gains the `storyPoints` value on the
     Project Track + any completion bonus. The Feature goes to a personal
     completed pile (used for end-game tie-break).
-  - **Technology**: the completing player decides whether to place it as
-    **private or public** (see §6). Bottom-half progress applies if the
-    card has any.
+  - **Technology** (DDR-0010): the completing player decides whether to
+    place it as **private or public** (see §6.6). Bottom-half progress
+    applies if the card has any.
 - All employees and items on the assignment go to the completing player's
   discard pile.
 - Other players' employees that were previously placed on this assignment
@@ -241,9 +275,10 @@ slots, not counted against the 5.
 ### 6.3. Prestige Employee (DDR-0009)
 
 - 1 unique card for MVP, ~10 copies in the deck, 1 market slot.
-- Cost: placeholder (e.g., 7).
+- Cost, end-of-game prestige value, and copy count are placeholders, see
+  [open-questions.md → Prestige Employee cost / value](open-questions.md#prestige-employee-cost--value)
+  (defaults: cost 7, +5 prestige end-of-game, 10 copies).
 - In-game effect: none.
-- End-of-game: +Y prestige (placeholder, e.g., +5).
 - Running this deck out is an **end-game trigger** (see §7).
 
 ### 6.4. Item
@@ -269,11 +304,17 @@ slots, not counted against the 5.
   progress).
 - **Top half**: an ongoing effect that is **always active** while the tech
   is in your play area or in the Open Source zone (covered or not) —
-  DDR-0010.
+  DDR-0010. May be intentionally **empty** ("do-nothing"); thematically
+  this means the published tech has no lasting impact once the hype
+  fades. See DDR-0010 § "Clarification — empty top half is allowed".
 - **Bottom half**: an ongoing effect that is **only active** while the tech
   is private with you, **or** while it is the **most recent** card in the
   Open Source zone.
-- **Open source publish prestige**: card-specific (placeholder default 2).
+- **Open source publish prestige**: **required, card-specific** field
+  (`openSourcePrestige`). Initial values are roughly proportional to the
+  card's required-skill total (lower-effort techs ≈ 1, mid ≈ 3, hardest
+  ≈ 5). Subject to balance tuning — see
+  [open-questions.md → Open-source publish prestige value](open-questions.md#open-source-publish-prestige-value).
 - At **completion**, the completing player chooses:
   - **Private**: card goes to their play area, both halves active for them
     only.
@@ -290,15 +331,18 @@ The `MEDIOR` level, the `Industry` field (DDR-0006), and the `Hobby` field
 
 The game ends when any of the following becomes true:
 
-- A player reaches the **prestige threshold** (placeholder: 30 / 25 / 20
-  depending on player count).
+- A player reaches the **prestige threshold** — placeholder, see
+  [open-questions.md → End-game prestige threshold](open-questions.md#end-game-prestige-threshold)
+  (defaults: 30 / 25 / 20 depending on player count).
 - The **Prestige Employee deck runs out** (DDR-0009).
 - Either **assignment deck runs out** (Feature or Technology).
 - Two other market decks run out (signal that markets are exhausted; rarely
   triggers).
 
 After the trigger, play continues until the start player's turn would come
-up again, so everyone has the same number of turns.
+up again, so everyone has the same number of turns. Note: the legacy
+"50-budget instawin" and "Government Project" end-game triggers are
+**not** part of MVP (DDR-0008).
 
 ### Final scoring
 

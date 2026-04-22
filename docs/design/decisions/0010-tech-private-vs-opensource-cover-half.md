@@ -55,12 +55,30 @@ Mechanically: **caps the depth of the active global effect stack.**
 
 ### Design requirements for Technology cards
 
-- The **TOP half** must be a **standalone meaningful ongoing effect** (it
-  is the part that survives long-term).
+- The **TOP half** must be a **standalone, self-consistent ongoing
+  effect** (it is the part that survives long-term).
+  - **Empty top ("do nothing") is permitted** — see clarification
+    below.
 - The **BOTTOM half** is an **optional addition**: an effect that adds
   value while private, or carries the hype while freshly published.
 - The **combination** of the two halves should generate a real "keep or
   publish?" decision.
+
+### Clarification — empty top half is allowed (added 2026-04-22, Phase 4 audit)
+
+A Technology card may legitimately have **no TOP effect** (an empty
+"do-nothing" top half). It still satisfies the "standalone, self-
+consistent" requirement: once published as open source and eventually
+covered, the card simply contributes nothing — i.e., the hype dies
+down completely. This is thematically valid: not every published
+technology has a lasting global impact.
+
+Cards designed this way trade higher BOTTOM-half power (active while
+private, or while most-recent in the open-source column) for zero
+long-term contribution after being covered.
+
+Existing examples in the audit: `T-001` Microtransactions, `T-011`
+Reusable UI components, `T-012` Logging framework.
 
 ## Consequences
 
@@ -91,9 +109,13 @@ Mechanically: **caps the depth of the active global effect stack.**
 
 ## Open questions
 
-- The value of **immediate prestige** on open-source publish: card-specific
-  or fixed? Recommended for MVP: card-specific field on the Technology
-  (`openSourcePrestige`), default 1-2.
+- The value of **immediate prestige** on open-source publish: **resolved
+  during Phase 4 audit (2026-04-22)** — `openSourcePrestige` is now a
+  **required** field on the `Technology` interface, with per-card values
+  seeded roughly proportional to the card's required-skill total
+  (cheapest techs ≈ 1, mid ≈ 3, hardest ≈ 5; small premium for the
+  highest-skill cards). The exact values stay tunable through playtest;
+  see `open-questions.md` for the placeholder mapping.
 - Is the private/public choice reversible? Default: no, decided once and
   stays. (Worth pinning down in the rulebook.)
 - Exact visual standard for the halving and the physical overlap ratio

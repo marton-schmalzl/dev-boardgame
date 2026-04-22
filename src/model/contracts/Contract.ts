@@ -26,7 +26,7 @@ export interface Feature extends Contract {
 
 
 export interface Technology extends Contract {
-    openSourcePrestige?: number;
+    openSourcePrestige: number;
     topEffects?: TriggeredAbility[];
     topDescription?: TranslatedString;
     bottomEffects?: TriggeredAbility[];

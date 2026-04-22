@@ -8,6 +8,7 @@ export interface Person extends Playable {
     title?: TranslatedString
     hobby?: Hobby;
     triggeredAbilities: TriggeredAbility[];
+    level?: Level;
 }
 
 export enum Level {

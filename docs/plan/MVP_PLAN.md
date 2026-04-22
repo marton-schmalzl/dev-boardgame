@@ -36,13 +36,20 @@ Working tool: [`inventory.md`](inventory.md).
   Francis/Grace/Haruto → Senior (initial proposal, tunable).
 - **Items** (`src/data/items.tsx`): canonize text, fix typos
   ("Energy drinnk" → "Energy drink", etc.).
-- **Features** (`src/data/functional_contracts.tsx`): keep ~20-25, remove
-  the `sector` field. Fix typos.
+- **Features** (`src/data/functional_contracts.tsx`): keep ~20-25. The
+  `sector` field stays in the data (and stays **optional** on the
+  `Contract` model) — it is inactive for MVP (DDR-0006), but kept around
+  so the mechanic can be revisited post-MVP without re-tagging cards. Fix
+  typos.
 - **Technologies** (`src/data/tecnical_contracts.tsx`): cleanup under the
   new open-source mechanic — every card's top half must be a standalone,
-  meaningful, persistent effect; the bottom half is active only privately
-  or as the most recent open-source. Fix the duplicate `T-017`
-  cardNumber. Target: ~10-12 unique techs.
+  self-consistent ongoing effect (empty / "do-nothing" top is also
+  allowed; see DDR-0010 clarification); the bottom half is active only
+  privately or as the most recent open-source. Fix the duplicate `T-017`
+  cardNumber. Target: **20-24 unique techs**, 1 copy each (variety over
+  duplication for the playtest). Cuts done in Phase 4 are commented out
+  in place rather than renumbered — final resequencing happens close to
+  release.
 - **Prestige Employee**: 1 unique card (cost X, +Y prestige end-of-game),
   ~10 copies. A single market slot.
 
@@ -57,6 +64,12 @@ The inventory matrix records: card × status × copy count × notes.
 - **Project Track** placeholder scale laid out as a reference card
   (values: `open-questions.md`).
 - **Prestige Employee** card concretized.
+- **New Technology cards**: design and add ~5-10 new techs in
+  `src/data/tecnical_contracts.tsx` to bring the total from ~15 active
+  uniques (Phase 4 result) up to the 20-24 target band. Each new card
+  must satisfy DDR-0010 (top half persistent or intentionally empty;
+  bottom half optional). Use new `T-NNN` numbers above the highest
+  existing one — do not reuse commented-out slots.
 
 ### Phase 4 — Clean up Technology cards for the new open-source mechanic
 
@@ -64,11 +77,17 @@ The inventory matrix records: card × status × copy count × notes.
   `bottomEffects/bottomDescription`) **stay**. Only the semantics is
   pinned: top = always active, bottom = only private or most-recent
   open-source.
-- Every tech card cross-checked: is the top half a standalone meaningful
-  ongoing effect (e.g., T-007 "+⭐ at end of game" is currently not
-  persistent → reworked or reclassified).
+- Every tech card cross-checked: top half must be standalone and
+  self-consistent. **Empty top half is allowed** (see DDR-0010
+  clarification): such cards trade higher bottom power for zero
+  contribution once covered.
 - Duplicate `T-017` cardNumber fixed.
-- Target: ~10-12 unique techs, 2× duplicated → ~20-24 cards.
+- Cards that don't meet the bar are **commented out in place** (never
+  deleted, never renumbered) so the gap and the rationale stay visible
+  in the source.
+- Output of Phase 4: **15 active unique tech cards**. The remaining
+  5-9 needed to hit the 20-24 target are produced in Phase 3 (see new
+  content step there).
 
 ### Phase 5 — Minimal app-level adjustments
 

@@ -67,7 +67,7 @@ export const items: Item[] = [
         photoSrc: "programming_socks.jpg"
     },
     {
-        name: { en: 'Energy drinnk' },
+        name: { en: 'Energy drink' },
         effects: [{ effectType: 'BUDGET', value: 1 }],
         triggeredAbilities: [{
             triggerTypes: [new TaskCompletion()],
@@ -121,7 +121,7 @@ export const items: Item[] = [
     },
     {
         name: { en: 'Pristine Programs' },
-        flavorText: { en: "A famout book by Uncle Rob" },
+        flavorText: { en: "A famous book by Uncle Rob" },
         cost: 4,
         skills: { creativity: 0, knowledge: 3, organization: 1 },
         prestige: 5,

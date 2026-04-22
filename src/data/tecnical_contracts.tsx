@@ -17,6 +17,7 @@ export const tecnical_contracts: Technology[] = [
         },
         sector: Industry.BUREAUCRACY,
         storyPoints: 0,
+        openSourcePrestige: 3,
         completionEffects: [{ effectType: "SUPPORT", value: 1 }],
         bottomEffects: [
             {
@@ -39,6 +40,7 @@ export const tecnical_contracts: Technology[] = [
         },
         sector: Industry.IT,
         storyPoints: 0,
+        openSourcePrestige: 5,
         completionEffects: [],
         topEffects: [
             {
@@ -69,6 +71,7 @@ export const tecnical_contracts: Technology[] = [
         },
         sector: Industry.IT,
         storyPoints: 0,
+        openSourcePrestige: 5,
         completionEffects: [],
         topEffects: [
             {
@@ -90,36 +93,32 @@ export const tecnical_contracts: Technology[] = [
             en: "Each time you complete a task, for your next task on the same turn gain ➕⚙️, ➕💡, ➕🗒️",
         },
     },
-    {
-        cardNumber: "T-004",
-        name: { en: "Automated Testing" },
-        photoSrc: 'automated_testing.jpg',
-        flavorText: {},
-        text: {},
-        requiredSkills: {
-            knowledge: 7,
-            organization: 5,
-            creativity: 3,
-        },
-        sector: Industry.IT,
-        storyPoints: 0,
-        completionEffects: [],
-        topEffects: [
-            // {
-            //     triggerTypes: ["TEST_RUN"],
-            //     effect: { effectType: "KNOWLEDGE", value: 1 },
-            // },
-        ],
-        topDescription: { en: "When you run tests, gain ➕⚙️" },
-        bottomEffects: [
-            // {
-            //     triggerTypes: ["BUG_FIX"],
-            //     effect: { effectType: "KNOWLEDGE", value: 2 },
-            //     multiUse: true,
-            // },
-        ],
-        bottomDescription: { en: "Each time you fix a bug, gain ➕⚙️⚙️" },
-    },
+    /* T-004 Automated Testing — CUT for MVP (DDR-0010 audit, Phase 4):
+     * both halves referenced undefined triggers (TEST_RUN, BUG_FIX) and
+     * the effect arrays were already commented out, so the card was
+     * effectively blank. Kept here as historical reference; revisit if a
+     * proper trigger model is reintroduced post-MVP.
+     *
+     * {
+     *     cardNumber: "T-004",
+     *     name: { en: "Automated Testing" },
+     *     photoSrc: 'automated_testing.jpg',
+     *     flavorText: {},
+     *     text: {},
+     *     requiredSkills: {
+     *         knowledge: 7,
+     *         organization: 5,
+     *         creativity: 3,
+     *     },
+     *     sector: Industry.IT,
+     *     storyPoints: 0,
+     *     completionEffects: [],
+     *     topEffects: [],
+     *     topDescription: { en: "When you run tests, gain ➕⚙️" },
+     *     bottomEffects: [],
+     *     bottomDescription: { en: "Each time you fix a bug, gain ➕⚙️⚙️" },
+     * },
+     */
     {
         cardNumber: "T-005",
         name: { en: "Continuous Integration" },
@@ -133,6 +132,7 @@ export const tecnical_contracts: Technology[] = [
         },
         sector: Industry.IT,
         storyPoints: 0,
+        openSourcePrestige: 5,
         completionEffects: [],
         topEffects: [
             {
@@ -162,7 +162,8 @@ export const tecnical_contracts: Technology[] = [
         },
         sector: Industry.IT,
         storyPoints: 0,
-        completionEffects: [{ effectType: "BUDGET", value: -2 }],
+        openSourcePrestige: 4,
+        completionEffects: [],
         topEffects: [
         ],
         topDescription: { en: "When you assign an employee with ⚙️ skill of 5 or more, gain ➕⚙️" },
@@ -177,29 +178,36 @@ export const tecnical_contracts: Technology[] = [
             en: "Each time you complete a project, gain ➕💲💲💲",
         },
     },
-    {
-        cardNumber: "T-007",
-        name: { en: "Machine Learning Algorithms" },
-        photoSrc: 'machine_learning.jpg',
-        flavorText: {},
-        text: {},
-        requiredSkills: {
-            knowledge: 9,
-            organization: 3,
-            creativity: 7,
-        },
-        sector: Industry.IT,
-        storyPoints: 0,
-        completionEffects: [],
-        topEffects: [
-        ],
-        topDescription: { en: "+⭐ at the end of game" },
-        bottomEffects: [
-        ],
-        bottomDescription: {
-            en: "➕⚙️ towards an assignment. Put a marker on it every time this is activated (max 3). ➕⚙️ for each marker",
-        },
-    },
+    /* T-007 Machine Learning Algorithms — CUT for MVP (DDR-0010 audit,
+     * Phase 4): top half ("+⭐ at end of game") was not a persistent
+     * ongoing effect; bottom half relied on a per-card marker mechanic
+     * that doesn't fit MVP component scope (no game-wide generic-token
+     * system yet). See IDEAS.md "Generic interaction tokens" — the
+     * marker idea is worth revisiting once a shared token economy
+     * justifies including tokens in the box.
+     *
+     * {
+     *     cardNumber: "T-007",
+     *     name: { en: "Machine Learning Algorithms" },
+     *     photoSrc: 'machine_learning.jpg',
+     *     flavorText: {},
+     *     text: {},
+     *     requiredSkills: {
+     *         knowledge: 9,
+     *         organization: 3,
+     *         creativity: 7,
+     *     },
+     *     sector: Industry.IT,
+     *     storyPoints: 0,
+     *     completionEffects: [],
+     *     topEffects: [],
+     *     topDescription: { en: "+⭐ at the end of game" },
+     *     bottomEffects: [],
+     *     bottomDescription: {
+     *         en: "➕⚙️ towards an assignment. Put a marker on it every time this is activated (max 3). ➕⚙️ for each marker",
+     *     },
+     * },
+     */
     {
         cardNumber: "T-008",
         name: { en: "User Experience Optimization" },
@@ -212,6 +220,7 @@ export const tecnical_contracts: Technology[] = [
             creativity: 8,
         },
         storyPoints: 0,
+        openSourcePrestige: 5,
         completionEffects: [],
         topEffects: [
             {
@@ -245,6 +254,7 @@ export const tecnical_contracts: Technology[] = [
             creativity: 3,
         },
         storyPoints: 0,
+        openSourcePrestige: 3,
         completionEffects: [],
         sector: Industry.IT,
         topEffects: [
@@ -269,7 +279,7 @@ export const tecnical_contracts: Technology[] = [
 
     {
         cardNumber: "T-010",
-        name: { en: "Design handbook" },
+        name: { en: "Design system" },
         photoSrc: 'design.jpg',
         flavorText: {},
         text: {},
@@ -279,6 +289,7 @@ export const tecnical_contracts: Technology[] = [
             creativity: 5,
         },
         storyPoints: 0,
+        openSourcePrestige: 3,
         completionEffects: [],
         sector: Industry.IT,
         topEffects: [
@@ -312,6 +323,7 @@ export const tecnical_contracts: Technology[] = [
             creativity: 6,
         },
         storyPoints: 0,
+        openSourcePrestige: 3,
         completionEffects: [],
         sector: Industry.IT,
         bottomEffects: [
@@ -340,6 +352,7 @@ export const tecnical_contracts: Technology[] = [
             creativity: 0,
         },
         storyPoints: 0,
+        openSourcePrestige: 1,
         completionEffects: [],
         sector: Industry.IT,
         topEffects: [
@@ -368,6 +381,7 @@ export const tecnical_contracts: Technology[] = [
             creativity: 2,
         },
         storyPoints: 0,
+        openSourcePrestige: 3,
         completionEffects: [],
         sector: Industry.IT,
         topEffects: [
@@ -378,12 +392,12 @@ export const tecnical_contracts: Technology[] = [
             },
         ],
         topDescription: {
-            en: "➕⚙️ ➕💡 ➕🗒️ towards each Open Source Technology assginment",
+            en: "➕⚙️ ➕💡 ➕🗒️ towards each Open Source Technology assignment",
         },
         bottomEffects: [
             {
                 triggerTypes: [new TechCompletion(true)],
-                effect: { effectType: "PRESTIGE", value: 2 },
+                effect: { effectType: "PRESTIGE", value: 3 },
                 multiUse: true,
             },
         ],
@@ -401,6 +415,7 @@ export const tecnical_contracts: Technology[] = [
             creativity: 0,
         },
         storyPoints: 0,
+        openSourcePrestige: 2,
         completionEffects: [],
         sector: Industry.IT,
         topEffects: [
@@ -418,7 +433,7 @@ export const tecnical_contracts: Technology[] = [
                 multiUse: true,
             },
         ],
-        bottomDescription: { en: "➕⚙️⚙️ towards each assginment with ⚙️ requirement of 5+", },
+        bottomDescription: { en: "➕⚙️⚙️ towards each assignment with ⚙️ requirement of 5+", },
     },
     {
         cardNumber: "T-015",
@@ -432,6 +447,7 @@ export const tecnical_contracts: Technology[] = [
             creativity: 2,
         },
         storyPoints: 0,
+        openSourcePrestige: 3,
         completionEffects: [],
         sector: Industry.IT,
         topEffects: [
@@ -452,7 +468,7 @@ export const tecnical_contracts: Technology[] = [
             },
         ],
         bottomDescription: {
-            en: "Each time you assing more than 1 worker to a task gain ➕🗒️🗒️",
+            en: "Each time you assign more than 1 worker to a task gain ➕🗒️🗒️",
         },
     },
     
@@ -468,6 +484,7 @@ export const tecnical_contracts: Technology[] = [
             creativity: 3,
         },
         storyPoints: 0,
+        openSourcePrestige: 3,
         completionEffects: [],
         sector: Industry.IT,
         topEffects: [
@@ -505,6 +522,7 @@ export const tecnical_contracts: Technology[] = [
             creativity: 4,
         },
         storyPoints: 0,
+        openSourcePrestige: 1,
         completionEffects: [],
         sector: Industry.IT,
         topEffects: [
@@ -514,7 +532,7 @@ export const tecnical_contracts: Technology[] = [
                 multiUse: true,
             },
         ],
-        topDescription: { en: "Gain ➕⭐ towards each assignment", },
+        topDescription: { en: "Gain ➕🗒️ towards each assignment", },
         bottomEffects: [
             {
                 triggerTypes: [new TaskAssignment({creativity: 6})],
@@ -525,14 +543,14 @@ export const tecnical_contracts: Technology[] = [
             },
         ],
         bottomDescription: {
-            en: "Gain ➕⭐⭐ towards an assignment with ⭐ requirement of 6 or higher",
+            en: "Gain ➕💡💡 towards an assignment with 💡 requirement of 6 or higher",
         },
     },
 
     
 
     {
-        cardNumber: "T-017",
+        cardNumber: "T-018",
         name: { en: "Spreadsheet macros" },
         photoSrc: 'excel.jpg',
         flavorText: {},
@@ -543,6 +561,7 @@ export const tecnical_contracts: Technology[] = [
             creativity: 0,
         },
         storyPoints: 0,
+        openSourcePrestige: 1,
         completionEffects: [],
         sector: Industry.IT,
         topEffects: [

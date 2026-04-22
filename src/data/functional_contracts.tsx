@@ -269,7 +269,7 @@ export const functional_contracts: Contract[] = [
         cardNumber: "C-021",
         name: { en: "Legal compliance" },
         photoSrc: "",
-        flavorText: { en: "Making sure everythinh is above board" },
+        flavorText: { en: "Making sure everything is above board" },
         text: {},
         requiredSkills: {
             knowledge: 3,
@@ -282,7 +282,7 @@ export const functional_contracts: Contract[] = [
         cardNumber: "C-022",
         name: { en: "Accessible design" },
         photoSrc: "",
-        flavorText: { en: "Differnces shouldn't create barriers" },
+        flavorText: { en: "Differences shouldn't create barriers" },
         text: {},
         requiredSkills: {
             knowledge: 4,

@@ -79,9 +79,22 @@ default placeholder value to work with through the MVP playtest.
 
 ### Open-source publish prestige value
 - **Source**: DDR-0010
-- **Default placeholder**: card-specific `openSourcePrestige` field on the
-  Technology; default 2.
-- **What we test**: is publishing attractive enough vs. private?
+- **Status**: field is now **required** on the `Technology` interface
+  (resolved 2026-04-22). Per-card values are seeded roughly proportional
+  to required-skill total, with a small premium for the hardest-to-
+  develop cards. Initial mapping (Phase 4):
+  - Skill total 4-5 → `openSourcePrestige: 1`
+    (T-012 Logging framework, T-017 Custom font, T-018 Spreadsheet macros)
+  - Skill total 8 → `openSourcePrestige: 2`
+    (T-014 Debugging tools)
+  - Skill total 11-12 → `openSourcePrestige: 3`
+    (T-001, T-009, T-010, T-011, T-013, T-015, T-016)
+  - Skill total 15 → `openSourcePrestige: 4`
+    (T-006 Cloud Infrastructure)
+  - Skill total 16-17 → `openSourcePrestige: 5` (premium)
+    (T-002, T-003, T-005, T-008)
+- **What we test**: is publishing attractive enough vs. private? Are the
+  premiums on the hardest techs enough to justify chasing them?
 
 ### Reversibility of the private/public choice
 - **Source**: DDR-0010
@@ -142,3 +155,51 @@ default placeholder value to work with through the MVP playtest.
 ### Multiple Prestige Employee variants?
 - **Source**: DDR-0009
 - **What we test**: is the single prestige card boring?
+
+---
+
+## Card-specific rule clarifications (surfaced in Phase 2 audit)
+
+### John (Mentor) ability post-Medior
+- **Source**: DDR-0005 (Medior tier removed for MVP)
+- **Question**: John's text "Dismiss a junior programmer. Hire a medior
+  programmer without paying its cost." references the removed Medior
+  tier. What replaces the training shortcut?
+- **Default placeholder for MVP**: *not yet rewritten.* Working proposal
+  to lock in during Phase 3: "Dismiss a Junior programmer in your hand or
+  discard pile. Hire a Senior programmer paying 4 less than its cost."
+  The 4-budget discount is itself a placeholder.
+- **What we test**: whether the discounted Senior path is too strong (skip
+  the entire Junior accumulation phase) or too weak.
+
+### Luke (Copycat) — does Copy include items?
+- **Source**: undocumented in card text
+- **Question**: When Luke "copies the stats of one of your other
+  employees assigned to the same project", does the copy include
+  equipped-item bonuses, or just the base employee stats?
+- **Default placeholder for MVP**: copy **base employee stats only**
+  (items do not propagate). Simpler to adjudicate at the table.
+
+### Francis (Contracting Coordinator) flow
+- **Source**: undocumented detail
+- **Question**: The text says "Put an employee directly into play while
+  paying 2 less than its cost. At the end, dismiss them." Several details
+  are unclear: "play" means the play area or assignment? When can the
+  employee be played from (hand only, or also discard / market)? "At the
+  end" = end of turn or end of phase?
+- **Default placeholder for MVP**: hire from the **market only**, paying
+  cost − 2; the new employee enters the **play area** as if just played
+  (on-play effects fire); dismissed in cleanup of the same turn.
+- **What we test**: is this too swingy? Should Francis only be able to
+  fetch Junior-tier hires?
+
+### Open Source Technology assignment references
+- **Source**: DDR-0010, see existing entry above
+- **Cards affected**: Randy (Resume-Driven Developer), Programming socks,
+  T-013 (Code sharing platform), T-017 (Custom font, in T-013 wording).
+- **Default placeholder for MVP**: rephrase trigger as "when assigned to
+  a Technology assignment, **as long as you intend to publish it open
+  source on completion**" — ad-hoc honor system, since the
+  private/public choice only crystallizes at completion. Worth
+  formalizing post-MVP (e.g., declare publication intent at assignment
+  time, no take-backs).

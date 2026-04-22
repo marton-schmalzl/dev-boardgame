@@ -15,6 +15,7 @@ export const backoffice: Person[] = [
     {
         name: { en: 'Alice' },
         title: { en: 'Onboarding Specialist' },
+        level: Level.JUNIOR,
         effects: [{ effectType: "BUDGET", value: 2 }, { effectType: "BUY_TO_DECK", value: 1 }],
         triggeredAbilities: [],
         text: { en: <span>➕<IconSpan><Icons.Budget size={14} /></IconSpan>, When hiring an employee, put them on the top of your deck instead of your discard.</span> },
@@ -26,6 +27,7 @@ export const backoffice: Person[] = [
     {
         name: { en: 'Ahmed' },
         title: { en: 'Accounting Assistant' },
+        level: Level.JUNIOR,
         effects: [{ effectType: 'BUDGET', value: 2 }],
         triggeredAbilities: [],
         text: { en: <span>➕<IconSpan><Icons.Budget size={14} /></IconSpan><IconSpan><Icons.Budget size={14} /></IconSpan></span> },
@@ -37,6 +39,7 @@ export const backoffice: Person[] = [
     {
         name: { en: 'Charles' },
         title: { en: 'Accountant' },
+        level: Level.SENIOR,
         effects: [{ effectType: 'BUDGET', value: 4 }],
         triggeredAbilities: [],
         text: { en: <span>➕<IconSpan><Icons.Budget size={14} /></IconSpan><IconSpan><Icons.Budget size={14} /></IconSpan><IconSpan><Icons.Budget size={14} /></IconSpan><IconSpan><Icons.Budget size={14} /></IconSpan></span> },
@@ -48,6 +51,7 @@ export const backoffice: Person[] = [
     {
         name: { en: 'Donna' },
         title: { en: 'Insider' },
+        level: Level.SENIOR,
         effects: [{ effectType: 'SCOUT_CONTRACTS', value: 5 }, { effectType: 'PURGE_CONTRACT', value: 2 }],
         triggeredAbilities: [],
         text: { en: 'Look at the top 5 cards of the contract deck. Put each of them back either at the top or the bottom of the deck, in any order. Purge up to 2 cards from the contract row.' },
@@ -59,6 +63,7 @@ export const backoffice: Person[] = [
     {
         name: { en: 'Eve' },
         title: { en: 'Downsizing Manager' },
+        level: Level.SENIOR,
         effects: [{ effectType: 'DISMISS', value: 1 }, { effectType: "BUDGET", value: 3 }],
         triggeredAbilities: [],
         text: { en: <span>➕<IconSpan><Icons.Budget size={14} /></IconSpan><IconSpan><Icons.Budget size={14} /></IconSpan><IconSpan><Icons.Budget size={14} /></IconSpan> You may dismiss an employee from your hand or discard pile</span> },
@@ -70,6 +75,7 @@ export const backoffice: Person[] = [
     {
         name: { en: 'Tina' },
         title: { en: 'HR trainee' },
+        level: Level.JUNIOR,
         effects: [{ effectType: 'DISMISS', value: 1 }],
         triggeredAbilities: [],
         text: { en: 'You may dismiss an employee from your hand or discard pile' },
@@ -81,6 +87,7 @@ export const backoffice: Person[] = [
     {
         name: { en: 'Francis' },
         title: { en: 'Contracting Coordinator' },
+        level: Level.SENIOR,
         effects: [{ effectType: 'BUDGET', value: 2 }],
         triggeredAbilities: [],
         text: { en: "Put an employee directly into play while paying 2 less than its cost. At the end, dismiss them." },
@@ -92,6 +99,7 @@ export const backoffice: Person[] = [
     {
         name: { en: 'Grace' },
         title: { en: 'Headhunter' },
+        level: Level.SENIOR,
         effects: [{ effectType: 'SCOUT_EMPLOYEES', value: 5 }, { effectType: 'PURGE_PERSON', value: 2 }],
         triggeredAbilities: [],
         text: { en: 'Look at the top 5 cards of any employee deck. Put each of them back either at the top or the bottom of the deck, in any order. Purge up to 2 cards from the corresponding employee market.' },
@@ -103,6 +111,7 @@ export const backoffice: Person[] = [
     {
         name: { en: 'Haruto' },
         title: { en: 'CFO' },
+        level: Level.SENIOR,
         effects: [{ effectType: 'BUDGET', value: 5 }],
         triggeredAbilities: [],
         text: { en: <span>➕<IconSpan><Icons.Budget size={14} /></IconSpan><IconSpan><Icons.Budget size={14} /></IconSpan><IconSpan><Icons.Budget size={14} /></IconSpan><IconSpan><Icons.Budget size={14} /></IconSpan><IconSpan><Icons.Budget size={14} /></IconSpan> You may dismiss a backoffice intern from your hand or discard pile</span> },
@@ -142,7 +151,7 @@ export const employees: Programmer[] = [
     {
         name: { en: 'Jake' },
         title: { en: 'Job Hopper' },
-        level: Level.MEDIOR,
+        level: Level.SENIOR,
         triggeredAbilities: [{ triggerTypes: [new TaskCompletion()], effect: { effectType: "DISMISS_SELF", mandatory: true } }],
         flavorText: { en: 'Always chasing the next big thing.' },
         cost: 5,
@@ -153,7 +162,7 @@ export const employees: Programmer[] = [
     {
         name: { en: 'Diego' },
         title: { en: 'Some Dude' },
-        level: Level.MEDIOR,
+        level: Level.JUNIOR,
         triggeredAbilities: [{ triggerTypes: [new TaskCompletion()], effect: { effectType: "DISMISS_SELF" } }],
         flavorText: { en: 'Just a regular guy getting the job done.' },
         cost: 3,
@@ -186,7 +195,7 @@ export const employees: Programmer[] = [
     {
         name: { en: 'Sophia' },
         title: { en: 'Challenge Seeker' },
-        level: Level.MEDIOR,
+        level: Level.SENIOR,
         triggeredAbilities: [{ triggerTypes: [new TaskCompletion({ knowledge: 5 })], effect: { effectType: "STORY_POINT", value: 1 } }],
         flavorText: { en: 'Never backs down from a tough task.' },
         cost: 4,

@@ -51,19 +51,30 @@ out of scope.
 
 ## Phase 1 — Finalize DESIGN.md
 
-- [ ] Setup section usability check
-- [ ] Every placeholder value moved into `open-questions.md`
-- [ ] Every section references the relevant DDR
+- [x] Setup section usability check (rewritten as a self-contained,
+  table-ready 10-step procedure with inline slot counts and explicit
+  starting space).
+- [x] Every placeholder value moved into `open-questions.md` (each
+  placeholder in DESIGN.md now has an inline link to its OQ entry; no new
+  placeholders surfaced — all already covered).
+- [x] Every section references the relevant DDR (added missing DDR-0003 /
+  DDR-0008 / DDR-0009 / DDR-0010 / DDR-0012 references in §3 Setup, §5
+  Turn structure, §7 End game).
 
 ## Phase 2 — Card content audit
 
 See: [`inventory.md`](inventory.md)
 
-- [ ] Production employees walked through
-- [ ] Admin employees walked through
-- [ ] Items walked through
-- [ ] Features walked through
-- [ ] Technologies walked through
+- [x] Production employees walked through (3 MEDIOR cards reclassified
+  → JUNIOR/SENIOR; final balance 8 + 8; copy counts assigned).
+- [x] Admin employees walked through (every card now carries a `level`
+  field; `Person.level` made optional in the model).
+- [x] Items walked through (typos fixed; copy counts assigned).
+- [x] Features walked through (typos fixed; 5 candidate-cuts flagged
+  to land at the ~25-card target; sector kept as optional inactive
+  field per DDR-0006).
+- [x] Technologies walked through (rolled into Phase 4 below — all 18
+  source entries audited, statuses + copy counts in `inventory.md`).
 
 ## Phase 3 — New content
 
@@ -71,11 +82,22 @@ See: [`inventory.md`](inventory.md)
 - [ ] CEO ability pinned down
 - [ ] Project Track placeholder scale
 - [ ] Prestige Employee card concretized
+- [ ] New Technology cards designed (5-9 new cards to bring active
+  uniques from 15 → 20-24; see Phase 3 step in `MVP_PLAN.md`)
 
 ## Phase 4 — Technology rework
 
-- [ ] Every tech's top half is standalone meaningful
-- [ ] Duplicate `T-017` cardNumber fixed
+- [x] Every tech's top half is standalone and self-consistent (DDR-0010
+  clarified: empty "do-nothing" top half is allowed). T-004 and T-007
+  did not meet the bar — commented out in source.
+- [x] Duplicate `T-017` cardNumber fixed (Spreadsheet macros → T-018;
+  Custom font keeps T-017).
+- [x] Description ↔ data mismatches resolved: T-013 prestige value
+  2 → 3, T-017 descriptions rewritten to match data (DDR-0011).
+- [x] T-006 Cloud Infrastructure -2 BUDGET completion penalty dropped
+  (was a bug, no other tech has a completion cost).
+- [x] T-010 renamed "Design handbook" → "Design system" (avoid name
+  collision with the item of the same name).
 
 ## Phase 5 — App adjustments
 

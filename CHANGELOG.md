@@ -55,7 +55,110 @@ design decisions, supplemented with legacy-intent details captured from the
 designer (e.g., the original purpose of the Medior tier, the anti-runaway
 goal of Government Project).
 
+### Open Question
+
+- John (Mentor) ability post-Medior — what replaces "hire a medior
+  programmer for free"? Working proposal documented in
+  `docs/design/open-questions.md`.
+- Luke (Copycat) — does "copy stats" include equipped items? MVP
+  default: no.
+- Francis (Contracting Coordinator) flow — hire-source, target zone,
+  and "at the end" timing all underspecified. MVP defaults documented.
+
+### Added
+
+- `IDEAS.md` entry: "Generic interaction tokens" — captures the
+  marker-mechanic idea that drove the original T-007 design, so it can
+  be revisited once a shared token economy justifies including tokens
+  in the box.
+
 ### Changed
 
 - All previously written project documentation translated to English; English
   is now the working language for project docs going forward.
+- Phase 4 — Technology rework:
+  - `src/model/contracts/Contract.ts`: `Technology.openSourcePrestige`
+    is now **required** (was optional). Every active technology must
+    declare its publish-prestige value so the open-source mechanic is
+    well-defined.
+  - `src/data/tecnical_contracts.tsx`: `openSourcePrestige` set on all
+    16 active tech cards. Values seeded roughly proportional to
+    required-skill total, with a small premium for the hardest cards
+    (mapping in `docs/design/open-questions.md`). Range: 1-5 ⭐.
+  - `docs/design/decisions/0010-tech-private-vs-opensource-cover-half.md`:
+    "Open questions" entry on publish-prestige value marked **resolved**;
+    documented the per-card mapping rule.
+  - `docs/design/DESIGN.md` §6.6: open-source publish prestige is now
+    described as a required, card-specific field rather than a single
+    placeholder default.
+  - `src/data/tecnical_contracts.tsx`:
+    - T-004 Automated Testing **commented out** (CUT for MVP) — both
+      halves used undefined trigger types (`TEST_RUN`, `BUG_FIX`) and
+      the effect arrays were already empty.
+    - T-007 Machine Learning Algorithms **commented out** (CUT for
+      MVP) — top "+⭐ at end of game" wasn't ongoing; the bottom
+      marker mechanic doesn't fit MVP component scope.
+    - T-006 Cloud Infrastructure: dropped the
+      `completionEffects: [{ effectType: "BUDGET", value: -2 }]`
+      penalty (bug — no other tech has a completion cost).
+    - T-010 renamed `'Design handbook'` → `'Design system'` (avoid
+      name collision with the item of the same name).
+    - T-013 Code sharing platform: bottom prestige value `2` → `3`
+      to match canonical text "+⭐⭐⭐" (DDR-0011).
+    - T-017 Custom font: descriptions rewritten to match data —
+      top `'Gain ➕🗒️ towards each assignment'`, bottom `'Gain
+      ➕💡💡 towards an assignment with 💡 requirement of 6 or
+      higher'`. Was previously using ⭐ icons that didn't match the
+      stat-bonus effects.
+    - Duplicate `T-017` resolved: Spreadsheet macros renumbered to
+      `T-018`; Custom font keeps `T-017`.
+    - Typos fixed in T-013, T-014, T-015 (`assginment` → `assignment`,
+      `assing` → `assign`).
+  - `docs/design/decisions/0010-tech-private-vs-opensource-cover-half.md`:
+    clarification added — an empty ("do-nothing") TOP half is
+    explicitly permitted; thematically, such cards have zero
+    long-term contribution once covered.
+  - `docs/design/DESIGN.md` §6.6 updated to mention the empty-top
+    allowance.
+  - `docs/plan/MVP_PLAN.md`: Phase 4 target adjusted to **20-24
+    unique** (1 copy each, variety-over-duplication for the
+    playtest); Phase 3 gains a new step to design 5-9 new tech
+    cards to fill the gap from the 15 active uniques produced by
+    Phase 4. Cuts are commented out in place; cardNumber slots are
+    not reused (final resequencing happens close to release).
+- Phase 2 — card content audit:
+  - `src/data/employees.tsx` — `employees`: Jake (MEDIOR → SENIOR),
+    Diego (MEDIOR → JUNIOR), Sophia (MEDIOR → SENIOR). Final
+    Junior/Senior balance is 8 / 8 (DDR-0005).
+  - `src/data/employees.tsx` — `backoffice`: every card now carries a
+    `level` field (Tina / Alice / Ahmed → JUNIOR; Charles / Donna /
+    Eve / Francis / Grace / Haruto → SENIOR).
+  - `src/model/cards/Person.ts`: `Person.level?: Level` added so admin
+    employees can carry a tier without making it required for any
+    future ungraded card. `Programmer` continues to require `level`.
+  - `src/data/items.tsx`: typos fixed — `'Energy drinnk'` → `'Energy
+    drink'`; `'A famout book by Uncle Rob'` → `'A famous book by
+    Uncle Rob'`.
+  - `src/data/functional_contracts.tsx`: typos fixed — C-021 flavor
+    `'everythinh'` → `'everything'`; C-022 flavor `'Differnces'` →
+    `'Differences'`.
+  - `docs/plan/MVP_PLAN.md` Phase 2 wording: the `sector` field on
+    `Contract` is **kept** in the data and stays optional in the
+    model (inactive for MVP per DDR-0006), so the mechanic can be
+    revisited post-MVP without re-tagging cards.
+  - `docs/plan/inventory.md` rewritten with concrete `KEEP` / `REWORK`
+    / `?` statuses and placeholder copy counts for every existing
+    card across employees, admin, items, and features. Technology
+    audit deferred to Phase 4.
+- `docs/design/DESIGN.md` Phase 1 polish:
+  - §3 Setup rewritten as a self-contained, table-ready 10-step procedure
+    with explicit starting space, inline market slot counts, and explicit
+    starter-deck shuffle / opening-hand instructions.
+  - Every placeholder value (Project Track scale, hire / item / assignment
+    market slot counts, Dev/HR ratio, Prestige Employee cost & copy count,
+    open-source publish prestige, end-game prestige threshold) now links
+    inline to its specific entry in `open-questions.md`.
+  - Missing DDR cross-references added in §2 (DDR-0004 on Project Track
+    reference card), §3 Setup (DDR-0003, DDR-0009, DDR-0010, DDR-0012),
+    §5 Turn structure (DDR-0003, DDR-0009, DDR-0010), §7 End game
+    (DDR-0008, DDR-0009).

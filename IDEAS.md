@@ -27,3 +27,12 @@ Mind Manipulator - item
 
 Alternative win condition: AI singularity
     20-20-20 requireiment - Flip a coin after predicting it's outcome: if successful, you win the game. If not, everyone loses.
+
+Generic interaction tokens
+    A small bag of cardboard tokens that multiple cards reference (e.g.,
+    "put a marker on this card", "+1 per marker", "spend a marker for X").
+    Including tokens for a single card is wasteful, but a shared token
+    economy unlocks marker-stacking mechanics like the original T-007
+    (Machine Learning Algorithms) ramp, recurring-effect counters,
+    contract-specific reservations, etc. Worth designing once a critical
+    mass of cards justifies the box content.
