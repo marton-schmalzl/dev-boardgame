@@ -1,5 +1,5 @@
 import { StatBonus } from "../model/cards/Effect";
-import { FeatureAssignment, Hire, TaskAssignment, TaskCompletion, TechAssignment, TechCompletion } from "../model/cards/TriggeredAbility";
+import { FeatureAssignment, FeatureCompletion, Hire, TaskAssignment, TaskCompletion, TechAssignment, TechCompletion } from "../model/cards/TriggeredAbility";
 import { Technology } from "../model/contracts/Contract";
 import { Industry } from "../model/contracts/Industry";
 
@@ -586,5 +586,208 @@ export const tecnical_contracts: Technology[] = [
             en: "Gain ➕🗒️🗒️ towards an assignment with 🗒️ requirement of 6 or higher",
         },
     },
-    
+
+    {
+        cardNumber: "T-019",
+        name: { en: "Mobile App" },
+        photoSrc: 'mobile_app.jpg',
+        flavorText: {},
+        text: {},
+        requiredSkills: {
+            knowledge: 4,
+            organization: 5,
+            creativity: 4,
+        },
+        storyPoints: 0,
+        openSourcePrestige: 3,
+        completionEffects: [
+            { effectType: "BUDGET", value: 3 },
+        ],
+        sector: Industry.IT,
+        topEffects: [
+            {
+                triggerTypes: [new FeatureCompletion()],
+                effect: { effectType: "BUDGET", value: 1 },
+                multiUse: true,
+            },
+        ],
+        topDescription: { en: "Each time you complete a feature, gain ➕💲" },
+        bottomEffects: [
+            {
+                triggerTypes: [new FeatureAssignment()],
+                effect: { effectType: "ORGANIZATION", value: 1 },
+                multiUse: true,
+            },
+        ],
+        bottomDescription: { en: "Gain ➕🗒️ towards every feature assignment" },
+    },
+
+    {
+        cardNumber: "T-020",
+        name: { en: "Search / SEO Indexing" },
+        photoSrc: 'seo.jpg',
+        flavorText: {},
+        text: {},
+        requiredSkills: {
+            knowledge: 4,
+            organization: 4,
+            creativity: 5,
+        },
+        storyPoints: 0,
+        openSourcePrestige: 3,
+        completionEffects: [],
+        sector: Industry.IT,
+        topEffects: [
+            {
+                triggerTypes: [new FeatureCompletion()],
+                effect: { effectType: "SCOUT_CONTRACTS", value: 3 },
+                multiUse: true,
+            },
+        ],
+        topDescription: { en: "When you complete a feature, scout 3 contracts (rearrange the top of the contract deck)" },
+        bottomEffects: [
+            {
+                triggerTypes: [new FeatureAssignment()],
+                effect: { effectType: "CREATIVITY", value: 1 },
+                multiUse: true,
+            },
+        ],
+        bottomDescription: { en: "Gain ➕💡 towards every feature assignment" },
+    },
+
+    {
+        cardNumber: "T-021",
+        name: { en: "Recruiting Automation" },
+        photoSrc: 'recruiting_automation.jpg',
+        flavorText: {},
+        text: {},
+        requiredSkills: {
+            knowledge: 3,
+            organization: 5,
+            creativity: 3,
+        },
+        storyPoints: 0,
+        openSourcePrestige: 3,
+        completionEffects: [],
+        sector: Industry.IT,
+        topEffects: [
+            {
+                triggerTypes: [new Hire()],
+                effect: { effectType: "BUDGET", value: 1 },
+                multiUse: false,
+            },
+        ],
+        topDescription: { en: "The first time you hire an employee each turn, gain ➕💲 (refund)" },
+        // Bottom: trigger is "when an employee market slot is refilled" —
+        // no native trigger type for it yet, "NONE" is used as a
+        // placeholder. SCOUT_EMPLOYEES captures the look-at-top-2 idea.
+        bottomEffects: [
+            {
+                triggerTypes: ["NONE"],
+                effect: { effectType: "SCOUT_EMPLOYEES", value: 2 },
+                multiUse: true,
+            },
+        ],
+        bottomDescription: { en: "When refilling the employee market, you may look at the top 2 cards. Put 1 on the bottom; refill with the other." },
+    },
+
+    {
+        cardNumber: "T-022",
+        name: { en: "A/B Testing Framework" },
+        photoSrc: 'ab_testing.jpg',
+        flavorText: {},
+        text: {},
+        requiredSkills: {
+            knowledge: 4,
+            organization: 4,
+            creativity: 4,
+        },
+        storyPoints: 0,
+        openSourcePrestige: 3,
+        completionEffects: [],
+        sector: Industry.IT,
+        topEffects: [
+            {
+                triggerTypes: [new FeatureCompletion()],
+                effect: { effectType: "PRESTIGE", value: 1 },
+                multiUse: true,
+            },
+        ],
+        topDescription: { en: "Each time you complete a feature, gain ➕⭐" },
+        bottomEffects: [
+            {
+                triggerTypes: [new FeatureAssignment()],
+                effect: { effectType: "CREATIVITY", value: 1 },
+                multiUse: true,
+            },
+        ],
+        bottomDescription: { en: "Gain ➕💡 towards every feature assignment" },
+    },
+
+    {
+        cardNumber: "T-023",
+        name: { en: "Tech Blog" },
+        photoSrc: 'tech_blog.jpg',
+        flavorText: {},
+        text: {},
+        requiredSkills: {
+            knowledge: 3,
+            organization: 4,
+            creativity: 5,
+        },
+        storyPoints: 0,
+        openSourcePrestige: 3,
+        completionEffects: [],
+        sector: Industry.IT,
+        topEffects: [
+            {
+                triggerTypes: [new TechCompletion()],
+                effect: { effectType: "PRESTIGE", value: 1 },
+                multiUse: true,
+            },
+        ],
+        topDescription: { en: "Each time you complete a technology, gain ➕⭐" },
+        bottomEffects: [
+            {
+                triggerTypes: [new TechAssignment()],
+                effect: { effectType: "CREATIVITY", value: 1 },
+                multiUse: true,
+            },
+        ],
+        bottomDescription: { en: "Gain ➕💡 towards every technology assignment" },
+    },
+
+    {
+        cardNumber: "T-024",
+        name: { en: "Open Source License" },
+        photoSrc: 'open_source_license.jpg',
+        flavorText: {},
+        text: {},
+        requiredSkills: {
+            knowledge: 3,
+            organization: 3,
+            creativity: 2,
+        },
+        storyPoints: 0,
+        openSourcePrestige: 2,
+        completionEffects: [],
+        sector: Industry.IT,
+        topEffects: [
+            {
+                triggerTypes: [new TechCompletion(true)],
+                effect: { effectType: "PRESTIGE", value: 2 },
+                multiUse: true,
+            },
+        ],
+        topDescription: { en: "Each time you complete an Open Source Technology, gain ➕⭐⭐" },
+        bottomEffects: [
+            {
+                triggerTypes: [new TechAssignment()],
+                effect: { effectType: new StatBonus(1, 1, 0) },
+                multiUse: true,
+            },
+        ],
+        bottomDescription: { en: "Gain ➕⚙️➕💡 towards every technology assignment" },
+    },
+
 ]

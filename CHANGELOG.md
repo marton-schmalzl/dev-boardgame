@@ -71,11 +71,63 @@ goal of Government Project).
   marker-mechanic idea that drove the original T-007 design, so it can
   be revisited once a shared token economy justifies including tokens
   in the box.
+- Phase 3 — new content:
+  - `src/data/prestige_employees.tsx` (new file) — Prestige Employee
+    realized as **"Someone's Nephew"** (cost 7, +5 prestige, no in-game
+    effect, 10 copies, 1 permanent market slot). DDR-0009 implementation;
+    pure money-dump themed as the boss's nepotism hire.
+  - `src/data/tecnical_contracts.tsx` — 6 new technologies designed to
+    bring active uniques from 15 → **21** (target band 20-24):
+    - T-019 Mobile App — completionEffects: ➕💲💲💲. Top: ➕💲 on
+      FeatureCompletion. Bottom: ➕🗒️ on FeatureAssignment. Skill
+      total 13 → ⭐⭐⭐.
+    - T-020 Search / SEO Indexing — top: scout 3 contracts on
+      FeatureCompletion. Bottom: ➕💡 on FeatureAssignment. Skill
+      total 13 → ⭐⭐⭐.
+    - T-021 Recruiting Automation (user-designed) — top: the first
+      time you hire each turn, gain ➕💲 (refund — equivalent to a
+      1-budget discount, expressed as a Hire trigger with BUDGET +1,
+      multiUse:false). Bottom: on employee market refill, look at
+      top 2, put 1 on bottom, refill with the other. Skill total
+      11 → ⭐⭐⭐. Renamed from "Headhunting Database" to avoid name
+      collision with T-016 (Headhunting algorithms). The bottom
+      trigger uses "NONE" as a placeholder — no native enum for
+      "on market refill"; canonical text is the rule (DDR-0011).
+    - T-022 A/B Testing Framework — top: ➕⭐ on FeatureCompletion;
+      bottom: ➕💡 on FeatureAssignment. Skill total 12 → ⭐⭐⭐.
+    - T-023 Tech Blog — top: ➕⭐ on TechCompletion (any); bottom:
+      ➕💡 on TechAssignment (any). Skill total 12 → ⭐⭐⭐.
+    - T-024 Open Source License — top: ➕⭐⭐ on Open Source
+      TechCompletion; bottom: ➕⚙️➕💡 on TechAssignment (any). Skill
+      total 8 → ⭐⭐. Intentional synergy with T-013 / T-023.
+  - `docs/design/DESIGN.md` §4 — "Reference card layout" subsection
+    added: the Project Track is realized as a single shared hand-drawn
+    reference card with the placeholder scale spelled out at the table.
 
 ### Changed
 
 - All previously written project documentation translated to English; English
   is now the working language for project docs going forward.
+- Phase 3 — new content:
+  - `src/data/starter_employees.tsx`:
+    - CEO `effects` finalized to match the canonical card text:
+      `[BUDGET +2, SCOUT_CONTRACTS 3, PURGE_CONTRACT 1]` (was a
+      commented-out placeholder; ability text itself unchanged).
+      Stats stay 2/2/2, level SENIOR, cost 0, prestige 0. See
+      [open-questions → CEO ability for MVP](docs/design/open-questions.md#ceo-ability-for-mvp)
+      (status now resolved).
+    - HR Intern `effects` wired up to `[BUDGET +1]` so the data matches
+      the canonical text (was previously commented out). Stats made
+      explicit zeros.
+    - Dev Intern `effects: []` and `text: {}` — explicit empty values
+      replacing commented-out placeholders.
+  - `docs/design/open-questions.md`: CEO ability for MVP question
+    marked **resolved** with the chosen text and a note on what to
+    drop first if it tests too strong.
+  - `docs/plan/inventory.md`: starter section closed (Dev Intern × 5,
+    HR Intern × 4, CEO × 1 per player); Prestige Employee row
+    concretized (Tech Evangelist); 6 new tech rows added; Phase 3
+    target met (21 active uniques in the 20-24 band).
 - Phase 4 — Technology rework:
   - `src/model/contracts/Contract.ts`: `Technology.openSourcePrestige`
     is now **required** (was optional). Every active technology must

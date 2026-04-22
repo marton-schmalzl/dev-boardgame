@@ -146,14 +146,13 @@ decision deferred to a dry-run sort (Phase 3 / pre-playtest).
 
 ## Technologies (`src/data/tecnical_contracts.tsx`)
 
-Phase 4 audit completed. Target: **20-24 unique active cards, 1 copy
+Phase 4 audit completed; Phase 3 added 6 new cards (T-019 to T-024) to
+land in the target band. Target: **20-24 unique active cards, 1 copy
 each** (variety over duplication for the playtest). Cuts are commented
 out in place — `cardNumber` slots are **not** reused; final
 resequencing happens close to release.
 
-Active uniques after Phase 4: **15** (see status `KEEP` rows). The
-remaining 5-9 cards needed to hit the target band are designed in
-Phase 3.
+Active uniques after Phase 3: **21** ✓ (see status `KEEP` rows).
 
 DDR-0010 audit rule: top half must be standalone and self-consistent.
 **Empty ("do-nothing") top halves are explicitly allowed** (see DDR-0010
@@ -181,25 +180,44 @@ proportional to skill totals (see open-questions for the mapping).
 | T-016 | Headhunting algorithms | KEEP | 1 | 3 | "Project start" trigger reads as "right after a Project Release". |
 | T-017 | Custom font | KEEP | 1 | 1 | Descriptions rewritten to match data: top "+🗒️ towards each assignment", bottom "+💡💡 towards an assignment with 💡 requirement of 6 or higher". |
 | T-018 | Spreadsheet macros | KEEP | 1 | 1 | Renumbered from duplicate T-017. |
+| T-019 | Mobile App | NEW | 1 | 3 | Phase 3. completionEffects: ➕💲💲💲. Top: ➕💲 on FeatureCompletion. Bottom: ➕🗒️ on FeatureAssignment. Skill total 13. |
+| T-020 | Search / SEO Indexing | NEW | 1 | 3 | Phase 3. Top: scout 3 contracts on FeatureCompletion. Bottom: ➕💡 on FeatureAssignment. Skill total 13. |
+| T-021 | Recruiting Automation | NEW | 1 | 3 | Phase 3 (user-designed). Renamed from "Headhunting Database" to avoid name collision with T-016 Headhunting algorithms. Top: first hire each turn refunds ➕💲 (Hire trigger, BUDGET +1, multiUse:false). Bottom: on employee market refill, look at top 2, put 1 on bottom. Skill total 11. Bottom-effect uses "NONE" trigger placeholder (no native enum for "on market refill"); canonical text is the rule (DDR-0011). |
+| T-022 | A/B Testing Framework | NEW | 1 | 3 | Phase 3. Top: ➕⭐ on FeatureCompletion. Bottom: ➕💡 on FeatureAssignment. Pairs with T-008 (UX). |
+| T-023 | Tech Blog | NEW | 1 | 3 | Phase 3. Top: ➕⭐ on TechCompletion (any). Bottom: ➕💡 on TechAssignment (any). |
+| T-024 | Open Source License | NEW | 1 | 2 | Phase 3. Top: ➕⭐⭐ on Open Source TechCompletion. Bottom: ➕⚙️➕💡 on TechAssignment (any). Synergy with T-013 / T-023. |
 
 ---
 
 ## Starter Deck (`src/data/starter_employees.tsx`)
 
-Phase 3 work. Audit deferred.
+Phase 3 closed.
+
+Per-player starter (DDR-0012 placeholder ratio): **1 CEO + 5 Dev Intern +
+4 HR Intern = 10 cards**.
 
 | Name | Target level | Status | Copies / player | Note |
 |------|--------------|--------|------------------|------|
-| CEO ("You") | SENIOR | REWORK | 1 | Ability to be finalized in Phase 3 |
-| Dev Intern | JUNIOR | KEEP | 5 (placeholder) | 1/1/1 stat, cost 0 |
-| HR Intern | JUNIOR | KEEP | 4 (placeholder) | +1 budget, cost 0 |
+| CEO ("You") | SENIOR | KEEP | 1 | Ability finalized: +2 BUDGET, scout 3 contracts, purge up to 1 from contract row. Stats 2/2/2. See [open-questions → CEO ability for MVP](../design/open-questions.md#ceo-ability-for-mvp). |
+| Dev Intern | JUNIOR | KEEP | 5 | Stats 1/1/1, cost 0, no text. |
+| HR Intern | JUNIOR | KEEP | 4 | Stats 0/0/0, cost 0. Effect: +1 BUDGET (matches canonical text). |
 
 ---
 
-## Prestige Employee (new)
+## Prestige Employee (`src/data/prestige_employees.tsx`)
 
-Phase 3 work.
+Phase 3 closed.
 
 | Name | Cost | Prestige | Status | Copies | Note |
 |------|------|----------|--------|--------|------|
-| Prestige Employee (placeholder) | 7 | 5 | NEW | 10 | Single unique, 1 market slot, deck-out = end trigger (DDR-0009) |
+| Someone's Nephew | 7 | 5 | KEEP | 10 | Single unique, 1 permanent market slot, deck-out = end trigger (DDR-0009). Empty effects + empty triggeredAbilities — pure Province-style money dump, themed as a nepotism hire. |
+
+---
+
+## Reference components
+
+Hand-drawn or printed table aids — not cards, not in `src/data/*`.
+
+| Name | Status | Note |
+|------|--------|------|
+| Project Track reference | DEFINED | 1 shared copy. Layout in DESIGN.md §4 → "Reference card layout". Values from open-questions placeholder scale. |

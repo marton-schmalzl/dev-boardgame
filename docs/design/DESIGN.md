@@ -126,6 +126,30 @@ Space:    1  2  3  4  5  6  7  8  9 10 11 12+
 Prestige: 0  0  1  1  2  2  3  4  5  6  7  8
 ```
 
+### Reference card layout
+
+For MVP, the Project Track is realized as a **single shared reference
+card** that sits in the middle of the table. Each player parks their
+personal marker (a colored cube, a coin, or a written tally) on one of
+its 12 spaces. Suggested layout (hand-drawn or printed):
+
+```
+┌─────────────────────────────────────────────────────────────┐
+│  Project Track                                              │
+│                                                             │
+│   [1] [2] [3] [4] [5] [6] [7] [8] [9] [10] [11] [12+]       │
+│    0   0   1   1   2   2   3   4   5   6    7    8          │
+│   (each space = total PROGRESS accumulated since last       │
+│    Project Release; the number under each space is the      │
+│    PRESTIGE you score on the next Release)                  │
+│                                                             │
+│  Trigger: when your deck runs out, gain the prestige value  │
+│  of your current space, then move your marker back to [1].  │
+└─────────────────────────────────────────────────────────────┘
+```
+
+A single hand-drawn copy is enough for the whole table.
+
 Every completed Feature gives **PROGRESS** on the Track (the Feature's
 `storyPoints` value). The marker advances accordingly.
 

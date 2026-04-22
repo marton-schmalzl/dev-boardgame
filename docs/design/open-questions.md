@@ -69,9 +69,16 @@ default placeholder value to work with through the MVP playtest.
 
 ### CEO ability for MVP
 - **Source**: DDR-0012
-- **Default placeholder**: "+2 budget, +1/1/1 stat, look at the top 2 cards
-  of any assignment deck and rearrange". Tunable.
-- **What we test**: too much complexity, or just the right starting agency.
+- **Status**: **resolved 2026-04-22 (Phase 3)**. The current card text is
+  taken as the MVP starting agency: **"+2 BUDGET; look at the top 3 cards
+  of the contract deck, reorder them on top/bottom freely; purge up to 1
+  card from the contract row."** Stat baseline kept at 2 / 2 / 2,
+  level SENIOR, cost 0, prestige 0.
+- **What we test**: is the contract-row manipulation too strong against
+  opponents who don't have it (it's only on the CEO, every player has
+  one), and does the +2 BUDGET starting boost trivialize the early game?
+  Easy fallback if too strong: drop the rearrange to top-2, or drop the
+  purge.
 
 ---
 

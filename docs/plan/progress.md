@@ -78,12 +78,24 @@ See: [`inventory.md`](inventory.md)
 
 ## Phase 3 — New content
 
-- [ ] Intern cards finalized
-- [ ] CEO ability pinned down
-- [ ] Project Track placeholder scale
-- [ ] Prestige Employee card concretized
-- [ ] New Technology cards designed (5-9 new cards to bring active
-  uniques from 15 → 20-24; see Phase 3 step in `MVP_PLAN.md`)
+- [x] Intern cards finalized (HR Intern: +1 BUDGET wired to match
+  canonical text; Dev Intern: empty effects/text confirmed; CEO `effects`
+  populated with BUDGET / SCOUT_CONTRACTS / PURGE_CONTRACT to match
+  canonical text. Comment-out cleanup done.)
+- [x] CEO ability pinned down (option A: kept current card text, see
+  [open-questions → CEO ability for MVP](../design/open-questions.md#ceo-ability-for-mvp)).
+- [x] Project Track placeholder scale (laid out as a hand-drawn shared
+  reference card; see DESIGN.md §4 → "Reference card layout"; values
+  remain the open-questions placeholder).
+- [x] Prestige Employee card concretized (`src/data/prestige_employees.tsx`,
+  flavor name "Someone's Nephew"; cost 7, +5 prestige, 10 copies; see
+  DDR-0009).
+- [x] New Technology cards designed (T-019 Mobile App, T-020 Search /
+  SEO Indexing, T-021 Recruiting Automation, T-022 A/B Testing
+  Framework, T-023 Tech Blog, T-024 Open Source License — 6 new uniques,
+  bringing active total from 15 → **21**, in the 20-24 target band).
+  T-021 was authored from a user-supplied design (originally "Headhunting
+  Database", renamed to avoid collision with T-016).
 
 ## Phase 4 — Technology rework
 

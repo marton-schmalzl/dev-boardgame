@@ -15,7 +15,11 @@ export const starter: Programmer[] = [
     {
         name: { en: 'You' },
         title: { en: 'CEO' },
-        effects: [/*{ effectType: "BUDGET", value: 2 }, { effectType: "BUY_TO_DECK", value: 1 }*/],
+        effects: [
+            { effectType: "BUDGET", value: 2 },
+            { effectType: "SCOUT_CONTRACTS", value: 3 },
+            { effectType: "PURGE_CONTRACT", value: 1 },
+        ],
         triggeredAbilities: [],
         text: { en: <span>➕<IconSpan><Icons.Budget size={14} /><Icons.Budget size={14} /></IconSpan>, Look at the top 3 cards of the contract deck. Put each of them back either at the top or the bottom of the deck, in any order. Purge up to 1 card from the contract row.</span> },
 
@@ -29,23 +33,22 @@ export const starter: Programmer[] = [
     {
         name: { en: '' },
         title: { en: 'HR Intern' },
-        effects: [/*{ effectType: "BUDGET", value: 2 }, { effectType: "BUY_TO_DECK", value: 1 }*/],
+        effects: [{ effectType: "BUDGET", value: 1 }],
         triggeredAbilities: [],
         text: { en: <span>➕<IconSpan><Icons.Budget size={14} /></IconSpan></span> },
         flavorText: { en: 'Just happy to be here.' },
         cost: 0,
         prestige: 0,
         photoSrc: '',
-        skills: {},
+        skills: { creativity: 0, knowledge: 0, organization: 0 },
         level: Level.JUNIOR,
     },
-
     {
         name: { en: '' },
         title: { en: 'Dev Intern' },
-        effects: [/*{ effectType: "BUDGET", value: 2 }, { effectType: "BUY_TO_DECK", value: 1 }*/],
+        effects: [],
         triggeredAbilities: [],
-        text: { en: '' },
+        text: {},
         flavorText: { en: 'Just happy to be here.' },
         cost: 0,
         prestige: 0,
