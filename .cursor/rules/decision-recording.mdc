@@ -1,0 +1,40 @@
+---
+description: When and how to record a Design Decision Record (DDR)
+alwaysApply: true
+---
+
+# Decision recording
+
+Every **substantive** design decision is captured as a DDR in
+[`docs/design/decisions/`](../../docs/design/decisions/). Template:
+[`TEMPLATE.md`](../../docs/design/decisions/TEMPLATE.md).
+
+## What counts as "substantive"?
+
+DDR required:
+- Adding / removing / changing a mechanic.
+- Structural change to a component (deck, market, track).
+- Stating a design principle (e.g., "card text is canonical", DDR-0011).
+- Reversing an earlier decision (then a new DDR with `Superseded by` marker).
+
+DDR **not** required:
+- A single card stat tweak.
+- Text cleanup, typo fixes.
+- Numeric placeholder tuning (those go to `open-questions.md`).
+
+## How to write a DDR
+
+1. New file: `decisions/NNNN-short-title.md`. `NNNN` is the next free
+   sequence number (4-digit, padded).
+2. Fill out the sections from `TEMPLATE.md`.
+3. If the new DDR supersedes an earlier one: set the older DDR's `Status` to
+   `Superseded by DDR-NNNN`, **do not delete** the old DDR.
+4. Add a reference (`(DDR-NNNN)`) in the relevant section of DESIGN.md.
+5. Add a one-liner to `## [Unreleased]` `### Decided` in CHANGELOG.
+
+## Backfill
+
+If a decision was made in conversation but is not yet in a DDR, **ask the
+user** whether it should be backfilled. A backfill DDR looks the same as a
+new one; only the date is the backfill date, and the context section should
+note "documented retroactively".

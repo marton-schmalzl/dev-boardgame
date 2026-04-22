@@ -1,3 +1,14 @@
+================================================================================
+  DEPRECATED — DO NOT MODIFY
+  --------------------------------------------------------------------------
+  This file is the legacy version of the game rules. The canonical rules
+  are now in: docs/design/DESIGN.md
+  Detailed design decisions: docs/design/decisions/
+  This file has historical / archaeological value only — it helps with
+  understanding the design evolution. Do not cite it as a rule source,
+  and do not edit it.
+================================================================================
+
 DEV_GAME
 In this game you will be playing as the CEO of a tech company, working to build a great team and develop software projects.
 The goal of the game is to earn the most PRESTIGE by the end of the game. There are multiple ways to earn PRESTIGE: some EMPLOYEE or ITEM cards have an end of game PRESITGE value printed on them. <insert end_of_game_prestige icon here> These are counted only at the end of the game. Some effects give immediate PRESTIGE, when these are activated move up on the PRESITGE track by the appropiate number of spaces <insert immediate_prestige icon here>.

@@ -1,0 +1,30 @@
+---
+description: DESIGN.md is the canonical rule source; legacy files are deprecated
+alwaysApply: true
+---
+
+# Design source of truth
+
+The **single canonical source** of game rules is [`docs/design/DESIGN.md`](../../docs/design/DESIGN.md).
+
+Detailed rationale and alternatives: [`docs/design/decisions/`](../../docs/design/decisions/) (DDR files).
+
+Things not yet decided: [`docs/design/open-questions.md`](../../docs/design/open-questions.md).
+
+## Deprecated
+
+- [`BASE_RULES.txt`](../../BASE_RULES.txt) — **DO NOT EDIT**, history only.
+- [`formatted_rules.html`](../../formatted_rules.html) — **DO NOT EDIT**.
+
+If you find a discrepancy between the legacy files and DESIGN.md:
+
+- **DESIGN.md wins**, no exceptions.
+- If the legacy content might be useful as design input, **ask the user**
+  whether to record its archaeological value in a new DDR before silently
+  overriding or ignoring it.
+
+## Linking convention
+
+Each section of DESIGN.md cites the relevant DDR (e.g., "see DDR-0010"). When
+new design content is added to DESIGN.md, **either** there is already a DDR
+covering it, **or** a new DDR is created at the same time.

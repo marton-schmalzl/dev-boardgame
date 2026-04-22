@@ -1,0 +1,47 @@
+---
+description: Every rule / content change gets a CHANGELOG entry
+alwaysApply: true
+---
+
+# Changelog discipline
+
+[`CHANGELOG.md`](../../CHANGELOG.md) is a **living document**. Every
+substantive change gets an entry under `## [Unreleased]`.
+
+## When to log
+
+- Modifying / adding DESIGN.md or any DDR.
+- Card content change in `src/data/*.tsx` (new card, removed card, rule
+  cleanup, level reassignment).
+- Structural change to `docs/plan/*.md` (new phase, scope change).
+- New open question, or an existing open question being resolved.
+- New rule / convention in `.cursor/rules/`.
+
+**Do not log**: typo fixes, file renames (when content does not change),
+commit message tweaks.
+
+## Groups
+
+- `Added` — new content, mechanic, card, or doc.
+- `Changed` — modification of existing rule / content.
+- `Removed` — content / mechanic removed.
+- `Deprecated` — still alive, but no longer recommended.
+- `Fixed` — bug (rule contradiction, typo) fixed.
+- `Decided` — new DDR, or a previous one superseded.
+- `Open Question` — new open question.
+
+## Style
+
+One-liner, present tense, declarative. Reference DDRs or files via markdown
+links. Examples:
+
+```
+- DDR-0013 — Open Source publish prestige fixed value (default 2).
+- `src/data/items.tsx`: typo "Energy drinnk" fixed.
+```
+
+## Releasing
+
+When a milestone (e.g., "MVP playtest #1 ready") is reached, the
+`## [Unreleased]` heading can be renamed to a version / date, and a new
+`## [Unreleased]` opens above it.

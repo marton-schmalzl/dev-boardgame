@@ -1,0 +1,39 @@
+---
+description: Read progress.md before starting work, update it after
+alwaysApply: true
+---
+
+# Plan execution
+
+The project is organized into phases (see
+[`docs/plan/MVP_PLAN.md`](../../docs/plan/MVP_PLAN.md)), and current state is
+tracked as a checklist in
+[`docs/plan/progress.md`](../../docs/plan/progress.md).
+
+## Before starting work
+
+1. Read the current state of `progress.md`.
+2. Identify the next logical task (earliest open `[ ]` or `[~]` checkpoint).
+3. If the order or task is unclear, **ask the user**.
+
+## During work
+
+- Card content audit also updates [`docs/plan/inventory.md`](../../docs/plan/inventory.md)
+  (card status, copy count, notes).
+- New design decisions: see [`decision-recording.mdc`](decision-recording.mdc).
+- Any change: see [`changelog-discipline.mdc`](changelog-discipline.mdc).
+
+## After work
+
+1. Update relevant checkpoints in `progress.md` (`[ ]` → `[~]` → `[x]`, or
+   `[-]` if dropped).
+2. If new work emerged during the session, add it to the appropriate phase.
+3. Verify all expected side-effects (CHANGELOG, inventory, open-questions)
+   were updated.
+
+## Status markers
+
+- `[ ]` open / not started
+- `[~]` in progress
+- `[x]` done
+- `[-]` dropped / out of scope
