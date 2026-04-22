@@ -18,9 +18,13 @@ const skillIcons: { [key in keyof Stats]: React.ElementType } = {
 };
 
 const TechnologyCard: React.FC<TechnologyCardProps> = ({ technology }) => {
+  const imgSrc =
+    technology.photoSrc && String(technology.photoSrc).trim()
+      ? `images/technology/${technology.photoSrc}`
+      : '';
+
   return (
     <Card variant="tech">
-      {/* Row 1: Header (Spans 2 Columns) */}
       <div className="col-span-2 w-full">
         <CardHeader
           left={
@@ -46,37 +50,38 @@ const TechnologyCard: React.FC<TechnologyCardProps> = ({ technology }) => {
         />
       </div>
 
-      {/* Row 2 Left: Top Effect */}
-      <div className="row-start-2 col-start-1 flex flex-col min-w-0 min-h-0">
-        <OutlinedBox label="Top Effect" variant="tech" className="">
+      <div className="row-span-2 row-start-2 col-start-1 flex min-h-0 min-w-0 flex-col gap-1">
+        <OutlinedBox label="Top Effect" variant="tech" className="min-h-0 flex-1">
           <div className="text-sm text-slate-800">
             {technology.topDescription?.en || ''}
           </div>
         </OutlinedBox>
-      </div>
-
-      {/* Row 2 Right: Image */}
-      <div className="row-start-2 col-start-2 h-full aspect-square rounded-[5px] overflow-hidden border border-blue-200 min-w-0 min-h-0 bg-white">
-        <img
-          src={'images/technology/' + technology.photoSrc}
-          alt={'Technology Illustration'}
-          className="h-full w-full object-cover block"
-        />
-      </div>
-
-      {/* Row 3 Left: Bottom Effect */}
-      <div className="row-start-3 col-start-1 flex flex-col min-w-0 min-h-0">
-        <OutlinedBox label="Bottom Effect" variant="tech" className="">
+        <OutlinedBox label="Bottom Effect" variant="tech" className="min-h-0 flex-1">
           <div className="text-sm text-slate-800">
             {technology.bottomDescription?.en || ''}
           </div>
         </OutlinedBox>
       </div>
 
-      {/* Row 3 Right: Skills */}
+      <div className="row-start-2 col-start-2 h-full aspect-square rounded-[5px] overflow-hidden border border-blue-200 min-w-0 min-h-0 bg-white">
+        {imgSrc ? (
+          <img
+            src={imgSrc}
+            alt={typeof technology.name.en === 'string' ? technology.name.en : ''}
+            className="h-full w-full object-cover block"
+          />
+        ) : (
+          <div className="flex h-full w-full items-center justify-center bg-slate-100 p-1 text-center text-[10px] text-slate-500">
+            No illustration
+          </div>
+        )}
+      </div>
+
       <div className="row-start-3 col-start-2 flex flex-col justify-center min-w-0 min-h-0">
         <div className="flex flex-col justify-center h-full">
-          <label className="text-xs font-bold text-slate-500 mb-[5px] block">Required Skills</label>
+          <label className="text-xs font-bold text-slate-500 mb-[5px] block">
+            Required Skills
+          </label>
           <div className="flex flex-col">
             {Object.entries(technology.requiredSkills).map(
               ([skillName, level]) => (

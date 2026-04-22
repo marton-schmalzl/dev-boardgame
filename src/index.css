@@ -1,8 +1,9 @@
 @import "tailwindcss";
 
 @theme {
-  --spacing-card-w: 127mm;
-  --spacing-card-h: 88.9mm;
+  /* Landscape assignment cards (Feature / Technology): poker size, long edge horizontal */
+  --spacing-card-w: 88.9mm;
+  --spacing-card-h: 63.5mm;
   --spacing-std-card-w: 63.5mm;
   --spacing-std-card-h: 88.9mm;
   --font-mono: "Iosevka Web", monospace;

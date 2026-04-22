@@ -34,18 +34,19 @@ to draw!).
 - **Intern**: 9 cards, mixed:
   - **Dev Intern**: 1/1/1 stat, cost 0, no ability.
   - **HR Intern**: +1 budget, cost 0, 0 stat (or minimal).
-  - Exact ratio is a **placeholder**, initial proposal: **5 Dev + 4 HR**
-    (or vice versa), to be tuned in playtest.
+  - Exact ratio is a **placeholder**, current default: **3 Dev + 6 HR**
+    (more early +1 BUDGET for hire flow); see `src/lib/constants.ts` and
+    `open-questions.md` — still tunable in playtest.
 
 ## Consequences
 
 - A 5-card hand is drawable from the start.
 - Two cycles in the full deck → first Project Release ~2 turns in, if
   every hire goes to discard on purchase (standard deck-builder pacing).
-- Starting budget baseline ~4 / turn (4 HR Intern = 4 budget if all
-  draw, but more likely 2-3).
-- Starting stat baseline ~3 / turn (5 Dev Intern × 1/1/1 = 5 cards in 5
-  hand, so 2-3 dev interns likely come up, ~6-9 total stats).
+- Starting budget baseline skews higher (~6 HR in deck → more +1 BUDGET
+  in early hands vs. the old 5 Dev / 4 HR mix).
+- Starting stat baseline from Dev interns is lower in the deck (3 Dev ×
+  1/1/1); expect fewer raw stats until hires land.
 - First hires can focus either on better workforce (Production Senior)
   or on budget acceleration (Admin Senior).
 
@@ -60,8 +61,8 @@ to draw!).
 
 ## Open questions
 
-- **Exact Dev/HR ratio** (5/4, 4/5, or different). One fixed ratio for
-  MVP, tunable in playtest. → `open-questions.md`.
+- **Exact Dev/HR ratio** (currently 3/6 in data; was 5/4). One fixed ratio
+  for MVP, tunable in playtest. → `open-questions.md`.
 - Should the CEO's ability be active for MVP, or is a simple "+2 budget,
   +1/1/1 stat" card enough? If active, what exactly? → `open-questions.md`.
 - Two CEO variants for asymmetric play (post-MVP).

@@ -42,7 +42,7 @@ projects. Goal: collect the most **PRESTIGE** by the end of the game.
 ### 2.1. Per-player components
 
 - **Starter deck**: 1 CEO + 9 interns (DDR-0012). Default split:
-  5 Dev Interns + 4 HR Interns — placeholder, see
+  3 Dev Interns + 6 HR Interns — placeholder, see
   [open-questions.md → Dev / HR ratio](open-questions.md#dev-intern--hr-intern-ratio).
 - **Project Track marker**: a personal marker placed on the shared Project
   Track at the starting space (Track described in §4).
@@ -103,7 +103,7 @@ and their own Project Track marker.
    the Technology deck **separately**; reveal 3 Features and 3
    Technologies into two distinct rows.
 7. **Each player builds their starter deck**: take 1 CEO and 9 interns
-   (default 5 Dev + 4 HR), shuffle them face-down. This is your starter
+   (default 3 Dev + 6 HR), shuffle them face-down. This is your starter
    deck.
 8. **Each player draws an opening hand of 5 employees** from the top of
    their starter deck (the starter deck contains no items, so the regular

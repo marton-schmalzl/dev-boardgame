@@ -16,6 +16,15 @@ Format:
 
 ### Added
 
+- Preview app routing (`react-router-dom`): **Playable cards**, **Assignments**,
+  and **Game board** pages; filters on card pages; **print view** (`?print=1`
+  or toolbar) plus `src/styles/print.css` so PDF export hides chrome; A2
+  landscape board sketch (594×420 mm) with hire/assignment/item zones showing
+  market + supply slots (except prestige: single face-up pile), compact 12-space
+  project ring; dev-only `cardDataDevChecks` for
+  duplicate `cardNumber` and empty `photoSrc`; `TechnologyCard` top/bottom
+  layout and empty-`photoSrc` placeholder; `translate.ts` `tr()` returns only
+  string `en` values.
 - `docs/` directory structure: `design/`, `design/decisions/`, `plan/`.
 - `docs/design/DESIGN.md` — first synthesis version of the canonical rules.
 - `docs/design/open-questions.md` — playtest-pending open questions with
@@ -41,6 +50,35 @@ Format:
 - `AGENTS.md` — entry point for agents and collaborators.
 - `.cursor/rules/` — 5 MDC files (design source-of-truth, card-data
   conventions, decision-recording, changelog-discipline, plan-execution).
+
+### Changed
+
+- `src/index.css` — Feature / Technology **landscape** dimensions (
+  `--spacing-card-w` / `--spacing-card-h`) set to standard playing-card
+  landscape **88.9×63.5 mm** (was 127×88.9 mm); game board assignment slots use
+  the same CSS variables.
+- Optional **`printCount`** on `Playable` and `Contract` (`src/model/`): Print
+  view repeats each card that many times (`copiesForPrint` in
+  `src/lib/printCopies.ts`); playable and assignment pages consume it.
+- `TechnologyCard` — removed dashed divider between top and bottom halves.
+- `src/data/prestige_employees.tsx` — Abilities text states **+5 prestige** at
+  end of game; `printCount: 10` for PDF repeats; `docs/plan/inventory.md` row
+  aligned.
+- `.cursor/rules/card-data-conventions.mdc` — `printCount` note; end-game
+  prestige in `text` when players need an explicit reminder.
+- `src/lib/constants.ts` — `MAX_PLAYER_COUNT` (3 for MVP),
+  `SUPPORTED_MAX_PLAYERS` (4), and starter intern counts **3 Dev + 6 HR** per
+  seat (`STARTER_*_INTERNS_PER_PLAYER`); `starter_employees` `printCount` uses
+  these with `MAX_PLAYER_COUNT` (1 CEO per seat). (Renamed from
+  `maxPlayers.ts`.)
+- Starter intern mix: **3 Dev + 6 HR** per player (was 5 + 4) for faster early
+  +1 BUDGET / hire flow — `DESIGN.md`, DDR-0012, `open-questions.md`,
+  `inventory.md`, `MVP_PLAN.md`.
+
+- `docs/plan/progress.md` — game board checkpoint marked **open** (incomplete;
+  physical iteration first); TechnologyCard progress line matches current UI.
+- `GameBoardPage` — screen-only note that the mat is a rough placeholder
+  pending table tests / sharpie iteration.
 
 ### Deprecated
 

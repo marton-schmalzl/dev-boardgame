@@ -64,8 +64,11 @@ default placeholder value to work with through the MVP playtest.
 
 ### Dev Intern / HR Intern ratio
 - **Source**: DDR-0012
-- **Default placeholder**: 5 Dev + 4 HR.
-- **What we test**: balance between starting budget and starting workforce.
+- **Default placeholder**: **3 Dev + 6 HR** per player (see
+  `STARTER_*_INTERNS_PER_PLAYER` in `src/lib/constants.ts`). Updated from
+  5 + 4 to bias early +1 BUDGET and hire-market access.
+- **What we test**: early hire flow vs. starting workforce depth; further
+  ratio tweaks after playtest.
 
 ### CEO ability for MVP
 - **Source**: DDR-0012

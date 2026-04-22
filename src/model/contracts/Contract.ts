@@ -18,6 +18,8 @@ export interface Contract {
     sector?: Industry;
     completionEffects?: Effect[];
     photoSrc?: string;
+    /** Physical copies to emit in app print / PDF mode; screen shows one. */
+    printCount?: number;
 }
 
 export interface Feature extends Contract {

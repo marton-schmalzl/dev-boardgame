@@ -14,7 +14,7 @@ const cardVariants = cva(
                 backoffice: "bg-backoffice-gradient border-backoffice-border text-backoffice-text",
             },
             orientation: {
-                landscape: "w-card-w h-card-h",
+                landscape: "w-card-w h-card-h p-2 gap-1.5",
                 portrait: "w-std-card-w h-std-card-h",
             },
             layout: {

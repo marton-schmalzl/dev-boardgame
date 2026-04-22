@@ -111,12 +111,23 @@ See: [`inventory.md`](inventory.md)
 - [x] T-010 renamed "Design handbook" → "Design system" (avoid name
   collision with the item of the same name).
 
-## Phase 5 — App adjustments
+## Phase 5 — Preview app (routes, print, board)
 
-- [ ] `src/App.tsx` — starter section + J/S split
-- [ ] `TechnologyCard` — divider emphasized
-- [ ] Empty `photoSrc` and duplicate `cardNumber` warnings handled
-- [ ] Type errors fixed
+- [x] Client routes: `/playable`, `/assignments`, `/board` (default → playable)
+- [x] Playable page: starter templates, production, admin, items, prestige
+  (`printCount` for deck repeats); category + Junior/Senior + text filters
+- [x] Assignments page: features / technologies + text filters
+- [ ] Game board page: **incomplete** — first-cut A2 sketch only; plan is to
+  print cards / simple refs and iterate layout at the table (e.g. sharpie)
+  before investing in another digital pass. Route stays as a stub.
+- [x] Print view (`?print=1` or toolbar) + print CSS hiding chrome for PDF
+- [x] `TechnologyCard` — top/bottom layout; empty-`photoSrc` placeholder
+  (dashed cover line removed — layout alone signals halves)
+- [x] Empty `photoSrc` (tech) + duplicate `cardNumber` dev warnings
+- [x] Type errors fixed (`translate.ts`, filters, ES5 Map iteration)
+- [ ] Optional: same empty-`photoSrc` placeholder treatment on employee / item /
+  feature cards
+- [ ] Optional: Vitest smoke tests for `/assignments` and `/board`
 
 ## Playtest #1
 

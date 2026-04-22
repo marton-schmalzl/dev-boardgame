@@ -20,6 +20,9 @@ required on new cards**, and **no new `EffectType` enum values are added**.
     cost: 3,
     // employee: skills, level (JUNIOR | SENIOR), title
     // contract: requiredSkills, storyPoints
+    // optional: printCount — copies in app Print view / PDF (default 1).
+    // Starter deck templates often use `* MAX_PLAYER_COUNT` from
+    // `src/lib/constants.ts` (per-seat copies).
 }
 ```
 
@@ -30,7 +33,9 @@ required on new cards**, and **no new `EffectType` enum values are added**.
 - **Cost modifier**: `+💲💲` form (one icon per unit of value).
 - **Triggered text**: `When [event]: [effect]` or `Each time [event]: [effect]` (repeating).
 - **Passive stats**: rendered from `skills` / `requiredSkills`, **do not repeat in `text`**.
-- **End-of-game prestige**: comes from the `prestige` field, **do not repeat in `text`** unless conditional.
+- **End-of-game prestige**: comes from the `prestige` field; **do not repeat in
+  `text`** unless players need an explicit reminder (e.g. a hire with no other
+  written abilities).
 
 ## Removed fields (see DDR-0006, DDR-0007)
 

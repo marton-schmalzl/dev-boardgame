@@ -1,4 +1,6 @@
 import { Level, Programmer } from "../model/cards/Person";
+import { Icons } from "../icons";
+import React from "react";
 
 // Prestige Employee — see DDR-0009.
 //
@@ -22,10 +24,22 @@ export const prestige_employees: Programmer[] = [
         title: { en: "Someone's Nephew" },
         effects: [],
         triggeredAbilities: [],
-        text: {},
+        text: {
+            en: (
+                <span className="inline-flex flex-wrap items-center gap-1">
+                    End of game:
+                    <Icons.Prestige size={14} className="shrink-0" />
+                    <Icons.Prestige size={14} className="shrink-0" />
+                    <Icons.Prestige size={14} className="shrink-0" />
+                    <Icons.Prestige size={14} className="shrink-0" />
+                    <Icons.Prestige size={14} className="shrink-0" />
+                </span>
+            ),
+        },
         flavorText: { en: 'No skills, no code, but the boss insists.' },
         cost: 7,
         prestige: 5,
+        printCount: 10,
         photoSrc: '',
         skills: {},
         level: Level.SENIOR,

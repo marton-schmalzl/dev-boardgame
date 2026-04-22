@@ -1,0 +1,26 @@
+/* Print preview (screen): hide chrome. */
+.app-print-preview .no-print {
+  display: none !important;
+}
+
+/* Browser print: hide chrome. */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+
+  body {
+    background: white !important;
+  }
+
+  .print-target,
+  .print-target * {
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+  }
+
+  .game-board-a2 {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+}

@@ -193,8 +193,9 @@ proportional to skill totals (see open-questions for the mapping).
 
 Phase 3 closed.
 
-Per-player starter (DDR-0012 placeholder ratio): **1 CEO + 5 Dev Intern +
-4 HR Intern = 10 cards**.
+Per-player starter (DDR-0012 placeholder ratio): **1 CEO + 3 Dev Intern +
+6 HR Intern = 10 cards** (`STARTER_*_INTERNS_PER_PLAYER` in
+`src/lib/constants.ts`).
 
 | Name | Target level | Status | Copies / player | Note |
 |------|--------------|--------|------------------|------|
@@ -210,7 +211,7 @@ Phase 3 closed.
 
 | Name | Cost | Prestige | Status | Copies | Note |
 |------|------|----------|--------|--------|------|
-| Someone's Nephew | 7 | 5 | KEEP | 10 | Single unique, 1 permanent market slot, deck-out = end trigger (DDR-0009). Empty effects + empty triggeredAbilities — pure Province-style money dump, themed as a nepotism hire. |
+| Someone's Nephew | 7 | 5 | KEEP | 10 (`printCount` in source) | Single unique, 1 permanent market slot, deck-out = end trigger (DDR-0009). Abilities text states end-game prestige; empty `effects` / `triggeredAbilities` — pure Province-style money dump, themed as a nepotism hire. |
 
 ---
 

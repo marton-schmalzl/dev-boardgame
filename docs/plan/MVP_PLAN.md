@@ -58,7 +58,8 @@ The inventory matrix records: card × status × copy count × notes.
 ### Phase 3 — Create new content
 
 - **Intern cards** in `src/data/starter_employees.tsx`:
-  CEO + 9 interns (Dev / HR ratio: tunable, initial proposal 5/4).
+  CEO + 9 interns (Dev / HR ratio: tunable; default **3 Dev + 6 HR** in
+  `src/lib/constants.ts`).
 - **CEO card** ability finalized (the current "top 3 contracts, purge 1"
   text either brought to a concrete end-state or dropped for MVP).
 - **Project Track** placeholder scale laid out as a reference card
@@ -89,14 +90,22 @@ The inventory matrix records: card × status × copy count × notes.
   5-9 needed to hit the 20-24 target are produced in Phase 3 (see new
   content step there).
 
-### Phase 5 — Minimal app-level adjustments
+### Phase 5 — Preview app (cards, print, table layout)
 
-- `src/App.tsx`: render the `starter` section; Junior/Senior split if
-  useful.
-- `src/components/TechnologyCard/TechnologyCard.tsx`: visually emphasized
-  divider line (must be unambiguous on print where to cover).
-- Empty `photoSrc` fields and duplicate `cardNumber` lints fixed.
-- Any type errors after the above changes fixed.
+- **Routes** (e.g. `react-router-dom`): separate pages for playable cards
+  (employees, starter, items, prestige), assignment cards (features +
+  technologies), and a printable **game board** sketch.
+- **Filtering**: at least category (or type) + text search on card pages;
+  Junior/Senior filter where it applies.
+- **Game board**: physical sizing (A2 landscape target), zones for hire market,
+  assignment market, item market, decks/discards, open-source column, a shared
+  **project track** (placeholder scale from `open-questions.md`); per-player
+  prestige can stay off-mat or on a separate aid — refine during playtest.
+- **Print / PDF**: a print mode that hides app chrome so the browser can export
+  cards or the board to PDF.
+- `TechnologyCard`: visually emphasized divider between top and bottom halves
+  (unambiguous where to cover).
+- Empty `photoSrc` / duplicate `cardNumber` surfaced in dev; typecheck clean.
 
 ---
 

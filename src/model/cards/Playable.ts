@@ -14,4 +14,6 @@ export interface Playable {
     dismissible?: boolean;
     dismissEffects?: Effect[];
     photoSrc?: string;
+    /** Physical copies to emit in app print / PDF mode; screen shows one. */
+    printCount?: number;
 }

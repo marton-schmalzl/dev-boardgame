@@ -74,7 +74,7 @@ const FeatureCard: React.FC<FeatureCardProps> = ({ feature }) => {
 
       {/* Row 3 Right: Required Skills */}
       <div className="row-start-3 col-start-2 flex flex-col justify-center min-w-0 min-h-0">
-        <OutlinedBox label="Required Skills" variant="feature" className="flex flex-col justify-center h-full">
+        <OutlinedBox label="Skills Req." variant="feature" className="flex flex-col justify-center h-full">
           <div className="flex flex-col">
             {Object.entries(feature.requiredSkills).map(([skillName, level]) => (
               <SkillRow

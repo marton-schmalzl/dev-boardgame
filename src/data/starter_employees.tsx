@@ -3,6 +3,11 @@ import { Hobby } from "../model/cards/Hobby";
 import { TaskCompletion, TechAssignment } from "../model/cards/TriggeredAbility";
 import { StatBonus } from "../model/cards/Effect";
 import { Icons } from "../icons";
+import {
+    MAX_PLAYER_COUNT,
+    STARTER_DEV_INTERNS_PER_PLAYER,
+    STARTER_HR_INTERNS_PER_PLAYER,
+} from "../lib/constants";
 import React from "react";
 
 const IconSpan = ({ children }: { children: React.ReactNode }) => (
@@ -26,6 +31,7 @@ export const starter: Programmer[] = [
         flavorText: { en: 'Always on the lookout for new opportunities.' },
         cost: 0,
         prestige: 0,
+        printCount: 1 * MAX_PLAYER_COUNT,
         photoSrc: '',
         skills: { creativity: 2, knowledge: 2, organization: 2 },
         level: Level.SENIOR,
@@ -39,6 +45,7 @@ export const starter: Programmer[] = [
         flavorText: { en: 'Just happy to be here.' },
         cost: 0,
         prestige: 0,
+        printCount: STARTER_HR_INTERNS_PER_PLAYER * MAX_PLAYER_COUNT,
         photoSrc: '',
         skills: { creativity: 0, knowledge: 0, organization: 0 },
         level: Level.JUNIOR,
@@ -52,6 +59,7 @@ export const starter: Programmer[] = [
         flavorText: { en: 'Just happy to be here.' },
         cost: 0,
         prestige: 0,
+        printCount: STARTER_DEV_INTERNS_PER_PLAYER * MAX_PLAYER_COUNT,
         photoSrc: '',
         skills: { creativity: 1, knowledge: 1, organization: 1 },
         level: Level.JUNIOR,
