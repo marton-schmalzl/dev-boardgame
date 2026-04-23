@@ -211,13 +211,9 @@ default placeholder value to work with through the MVP playtest.
 
 ### John (Mentor) ability post-Medior
 - **Source**: DDR-0005 (Medior tier removed for MVP)
-- **Question**: John's text "Dismiss a junior programmer. Hire a medior
-  programmer without paying its cost." references the removed Medior
-  tier. What replaces the training shortcut?
-- **Default placeholder for MVP**: *not yet rewritten.* Working proposal
-  to lock in during Phase 3: "Dismiss a Junior programmer in your hand or
-  discard pile. Hire a Senior programmer paying 4 less than its cost."
-  The 4-budget discount is itself a placeholder.
+- **Question**: John's legacy text referenced the removed Medior tier.
+  What replaces the training shortcut long-term?
+- **Default placeholder for MVP**: **Now wired in card data** (`src/data/employees.tsx` → John): "Dismiss a Junior programmer from your hand or discard pile. Hire a Senior programmer from the market, paying 4 less than its cost (minimum 0)." The "4 less" discount remains a tunable placeholder.
 - **What we test**: whether the discounted Senior path is too strong (skip
   the entire Junior accumulation phase) or too weak.
 

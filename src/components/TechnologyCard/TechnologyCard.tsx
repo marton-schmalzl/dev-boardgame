@@ -6,6 +6,7 @@ import OutlinedBox from '../ui/OutlinedBox';
 import CardHeader from '../common/CardHeader';
 import SkillRow from '../common/SkillRow';
 import { Icons } from '../../icons';
+import CardMetaBadges from '../common/CardMetaBadges';
 
 interface TechnologyCardProps {
   technology: Technology;
@@ -25,6 +26,7 @@ const TechnologyCard: React.FC<TechnologyCardProps> = ({ technology }) => {
 
   return (
     <Card variant="tech">
+      <CardMetaBadges candidate={technology.candidate} notes={technology.notes} />
       <div className="col-span-2 w-full">
         <CardHeader
           left={

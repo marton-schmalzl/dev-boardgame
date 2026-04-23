@@ -347,12 +347,12 @@ export const tecnical_contracts: Technology[] = [
         flavorText: {},
         text: {},
         requiredSkills: {
-            knowledge: 3,
-            organization: 1,
-            creativity: 0,
+            knowledge: 4,
+            organization: 4,
+            creativity: 2,
         },
         storyPoints: 0,
-        openSourcePrestige: 1,
+        openSourcePrestige: 2,
         completionEffects: [],
         sector: Industry.IT,
         topEffects: [
@@ -517,12 +517,12 @@ export const tecnical_contracts: Technology[] = [
         flavorText: {},
         text: {},
         requiredSkills: {
-            knowledge: 0,
-            organization: 1,
-            creativity: 4,
+            knowledge: 2,
+            organization: 3,
+            creativity: 5,
         },
         storyPoints: 0,
-        openSourcePrestige: 1,
+        openSourcePrestige: 2,
         completionEffects: [],
         sector: Industry.IT,
         topEffects: [
@@ -556,12 +556,12 @@ export const tecnical_contracts: Technology[] = [
         flavorText: {},
         text: {},
         requiredSkills: {
-            knowledge: 2,
-            organization: 3,
-            creativity: 0,
+            knowledge: 3,
+            organization: 5,
+            creativity: 2,
         },
         storyPoints: 0,
-        openSourcePrestige: 1,
+        openSourcePrestige: 2,
         completionEffects: [],
         sector: Industry.IT,
         topEffects: [
@@ -689,6 +689,7 @@ export const tecnical_contracts: Technology[] = [
             },
         ],
         bottomDescription: { en: "When refilling the employee market, you may look at the top 2 cards. Put 1 on the bottom; refill with the other." },
+        notes: 'Bottom-effect trigger uses "NONE" as a placeholder — no native enum for "on employee market refill". Canonical text is the rule (DDR-0011), but the trigger model needs an entry post-MVP.',
     },
 
     {
@@ -788,6 +789,103 @@ export const tecnical_contracts: Technology[] = [
             },
         ],
         bottomDescription: { en: "Gain ➕⚙️➕💡 towards every technology assignment" },
+    },
+
+    {
+        cardNumber: "T-025",
+        name: { en: "Candidate — Workflow engine (T1 org)" },
+        photoSrc: '',
+        flavorText: { en: 'Placeholder — slot TC-T1-org.' },
+        text: {},
+        requiredSkills: {
+            knowledge: 3,
+            organization: 5,
+            creativity: 2,
+        },
+        storyPoints: 0,
+        openSourcePrestige: 2,
+        completionEffects: [],
+        sector: Industry.IT,
+        topEffects: [],
+        topDescription: { en: '' },
+        bottomEffects: [
+            {
+                triggerTypes: [new TaskAssignment()],
+                effect: { effectType: new StatBonus(0, 0, 1) },
+                multiUse: true,
+            },
+        ],
+        bottomDescription: { en: 'Gain ➕🗒️ towards every assignment' },
+        candidate: true,
+        notes: 'Design slot TC-T1-org (candidate). After T-012 floor raise, overlaps org T1 band — specialize, merge, or cut post-playtest.',
+    },
+    {
+        cardNumber: "T-026",
+        name: { en: "Candidate — Creative toolchain (T2 cre)" },
+        photoSrc: '',
+        flavorText: { en: 'Placeholder — slot TC-T2-cre.' },
+        text: {},
+        requiredSkills: {
+            knowledge: 4,
+            organization: 3,
+            creativity: 6,
+        },
+        storyPoints: 0,
+        openSourcePrestige: 3,
+        completionEffects: [],
+        sector: Industry.IT,
+        topEffects: [
+            {
+                triggerTypes: [new FeatureAssignment()],
+                effect: { effectType: 'CREATIVITY', value: 1 },
+                multiUse: true,
+            },
+        ],
+        topDescription: { en: 'Gain ➕💡 towards every feature assignment' },
+        bottomEffects: [
+            {
+                triggerTypes: [new TaskCompletion()],
+                effect: { effectType: 'STORY_POINT', value: 1 },
+                multiUse: true,
+            },
+        ],
+        bottomDescription: { en: 'Each time you complete an assignment, gain 1 extra Progress Point' },
+        candidate: true,
+        notes: 'Design slot TC-T2-cre (candidate).',
+    },
+    {
+        cardNumber: "T-027",
+        name: { en: "Candidate — Company operating system (T4 cap)" },
+        photoSrc: '',
+        flavorText: { en: 'Placeholder — slot TC-T4-cap.' },
+        text: {},
+        requiredSkills: {
+            knowledge: 6,
+            organization: 6,
+            creativity: 6,
+        },
+        storyPoints: 0,
+        openSourcePrestige: 5,
+        completionEffects: [{ effectType: 'PRESTIGE', value: 1 }],
+        sector: Industry.IT,
+        topEffects: [
+            {
+                triggerTypes: [new TaskAssignment(undefined, { count: 2, compare: 'MIN' })],
+                effect: { effectType: new StatBonus(1, 1, 1) },
+                multiUse: true,
+            },
+        ],
+        topDescription: { en: 'Each time you assign at least 3 employees to a task, gain ➕⚙️➕💡➕🗒️ towards that assignment' },
+        bottomEffects: [
+            {
+                triggerTypes: [new TechCompletion()],
+                effect: { effectType: 'BUDGET', value: 2 },
+                multiUse: true,
+            },
+        ],
+        bottomDescription: { en: 'Each time you complete a technology, gain ➕💲💲' },
+        candidate: true,
+        notes: 'Design slot TC-T4-cap (candidate).',
     },
 
 ]

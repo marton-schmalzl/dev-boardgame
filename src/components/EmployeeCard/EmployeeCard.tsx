@@ -6,6 +6,7 @@ import CostDisplay from '../common/CostDisplay';
 import OutlinedBox from '../ui/OutlinedBox';
 import AbilityBox from '../common/AbilityBox';
 import SkillsBox from '../common/SkillsBox';
+import CardMetaBadges from '../common/CardMetaBadges';
 
 interface EmployeeCardProps {
     employee: Programmer;
@@ -17,6 +18,7 @@ const EmployeeCard: React.FC<EmployeeCardProps> = ({ employee }) => {
 
     return (
         <GameCard variant={variant}>
+            <CardMetaBadges candidate={employee.candidate} notes={employee.notes} />
             {/* Header */}
             <div className="w-full">
                 <CardHeader

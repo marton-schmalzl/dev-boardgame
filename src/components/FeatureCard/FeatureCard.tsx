@@ -6,6 +6,7 @@ import { Card } from '../ui/Card';
 import CardHeader from '../common/CardHeader';
 import SkillRow from '../common/SkillRow';
 import { Icons } from '../../icons';
+import CardMetaBadges from '../common/CardMetaBadges';
 
 interface FeatureCardProps {
   feature: Feature;
@@ -20,6 +21,7 @@ const skillIcons: { [key in keyof Stats]: React.ElementType } = {
 const FeatureCard: React.FC<FeatureCardProps> = ({ feature }) => {
   return (
     <Card variant="feature">
+      <CardMetaBadges candidate={feature.candidate} notes={feature.notes} />
       {/* Row 1: Header (Spans 2 Columns) */}
       <div className="col-span-2 w-full">
         <CardHeader

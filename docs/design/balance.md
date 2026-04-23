@@ -226,8 +226,9 @@ through tagging or post-playtest cuts.
 - Tier 3 → 4-6 SP.
 - Tier 4 → 6-8 SP.
 
-Existing values get audited against this in the cleanup pass (separate
-from this framework).
+Released feature `storyPoints` in `src/data/functional_contracts.tsx`
+were aligned to this grid in Phase 6 (see `inventory.md` features
+section).
 
 ---
 
@@ -251,9 +252,10 @@ floor is set assuming none of them are active).
 | T3 — Major    | 15-17 | High senior + supporters, OR multiple mid seniors                    |
 | T4 — Capstone | 18+   | Multiple seniors, late game; should be rare                          |
 
-T-012 (Logging, total 4), T-017 (Custom font, total 5), and T-018
-(Spreadsheet macros, total 5) sit below the T1 floor and are flagged for
-the cleanup pass.
+T-012 (Logging), T-017 (Custom font), and T-018 (Spreadsheet macros)
+were below the T1 floor in early data; **Phase 6** raised their
+`requiredSkills` into the 9–11 band (see `inventory.md` technology
+rows).
 
 ### 5.3. Open-source publish prestige
 

@@ -24,22 +24,24 @@ listed assume a ~60 min, 2–3 player game.
 
 ## Production Employees (`src/data/employees.tsx` → `employees`)
 
-Source: 16 cards. Target: ~6–8 Junior + ~6–8 Senior unique, with 2× copy
+Source: 16 released + **18** Phase-6 `candidate` placeholders (`Candidate — …` in `employees.tsx`). Target: ~6–8 Junior + ~6–8 Senior unique, with 2× copy
 duplication → ~32-card hire deck split into two rows. The MEDIOR enum
 value is no longer used by any card (DDR-0005); it stays in the model so
 old data files don't break.
 
-Resulting tier balance: **8 Junior + 8 Senior** ✓
+Resulting tier balance: **9 Junior + 7 Senior** after Phase 6 cleanup
+(Kyle → JUNIOR at cost 4). Prior target was 8+8 — revisit hire-deck
+copy math or promote a card if playtest wants strict parity.
 
 | Name | Level | Status | Copies | Note |
 |------|-------|--------|--------|------|
-| John (Mentor) | SENIOR | REWORK | 2 | Card text still says "hire a medior programmer". DDR-0005 fallout — see [open-questions → John (Mentor) ability post-Medior](../design/open-questions.md#john-mentor-ability-post-medior). |
+| John (Mentor) | SENIOR | KEEP | 2 | MVP text: dismiss Junior, hire Senior from market paying 4 less (see [open-questions → John (Mentor) ability post-Medior](../design/open-questions.md#john-mentor-ability-post-medior)). |
 | Li Na (Product Owner) | SENIOR | KEEP | 2 | "Draw until employee" is no-op vs an all-employee starter deck, but becomes meaningful once items mix in. |
 | Jake (Job Hopper) | SENIOR | KEEP | 2 | Reclassified MEDIOR → SENIOR. |
 | Diego (Some Dude) | JUNIOR | KEEP | 2 | Reclassified MEDIOR → JUNIOR. |
-| Kyle (One Angry Programmer) | SENIOR | KEEP | 2 | |
+| Kyle (One Angry Programmer) | JUNIOR | KEEP | 2 | Phase 6: SENIOR@4 → JUNIOR@4 (cost-band). Item-destroy drawback unchanged. |
 | Randy (Resume-Driven Developer) | JUNIOR | KEEP | 2 | Open-source trigger (DDR-0010); see open-questions for "Open Source Technology assignment" ambiguity. |
-| Sophia (Challenge Seeker) | SENIOR | KEEP | 2 | Reclassified MEDIOR → SENIOR. |
+| Sophia (Challenge Seeker) | SENIOR | KEEP | 2 | Phase 6: cost 4 → **5** (cost-band). |
 | Kwame (Overly Ambitious) | JUNIOR | KEEP | 2 | |
 | Mason (Lone Wolf) | SENIOR | KEEP | 2 | |
 | Steve (Insecure Developer) | SENIOR | KEEP | 2 | |
@@ -55,8 +57,8 @@ Resulting tier balance: **8 Junior + 8 Senior** ✓
 Targets defined by the framework in
 [`../design/balance.md`](../design/balance.md). Cost-band rule: JUNIOR
 cost 2-4, SENIOR cost 5+. See balance §1 for stat budgets and copy
-curve. Cleanup-pass actions for existing cards (Kyle, Sophia,
-John, Luke, Steve, Jake) are tracked separately as part of Phase 6.
+curve. Cost-band cleanup for Kyle / Sophia / John applied in Phase 6;
+Luke / Steve / Jake still carry `notes` for open tuning.
 
 | Slot ID | Cost | Tier | Focus | Target stats (cre/kn/org) | Copies | Notes |
 |---------|------|------|-------|----------------------------|--------|-------|
@@ -83,15 +85,21 @@ Implementation fallback (per balance §1.5): if a designed slot has no
 card concept by execution time, print extra copies of an adjacent
 unique. Don't trim plan numbers.
 
+**Phase 6 (2026-04):** every row in the Production design-slot table
+above is covered by a matching **candidate** card in
+`src/data/employees.tsx` (`candidate: true`, `notes` cites the slot
+ID). Replace names / art / rules before treating as final.
+
 ---
 
 ## Admin Employees (`src/data/employees.tsx` → `backoffice`)
 
-Source: 9 cards. Every card now has a `level` field (DDR-0005 + Phase 2
+Source: 9 released + **14** Phase-6 `candidate` placeholders. Every card now has a `level` field (DDR-0005 + Phase 2
 audit). The `Person.level` field is **optional** in the model so we can
 keep ungraded admin cards in the future.
 
-Tier balance: **3 Junior + 6 Senior**.
+Tier balance: **4 Junior + 5 Senior** (Phase 6: Donna → JUNIOR; Eve /
+Grace / Francis cost → 5).
 
 | Name | Level | Status | Copies | Note |
 |------|-------|--------|--------|------|
@@ -99,21 +107,21 @@ Tier balance: **3 Junior + 6 Senior**.
 | Ahmed (Accounting Assistant) | JUNIOR | KEEP | 3 | +2 budget. |
 | Tina (HR trainee) | JUNIOR | KEEP | 3 | Dismiss. |
 | Charles (Accountant) | SENIOR | KEEP | 2 | +4 budget. |
-| Donna (Insider) | SENIOR | KEEP | 2 | Contract scout/purge. |
-| Eve (Downsizing Manager) | SENIOR | KEEP | 2 | Dismiss + 3 budget. |
-| Francis (Contracting Coordinator) | SENIOR | REWORK | 2 | "Hire to play, dismiss at end of turn" is mechanically dense; see [open-questions → Francis (Contracting Coordinator) flow](../design/open-questions.md#francis-contracting-coordinator-flow). |
-| Grace (Headhunter) | SENIOR | KEEP | 2 | Employee scout/purge. |
+| Donna (Insider) | JUNIOR | KEEP | 2 | Phase 6: SENIOR@3 → JUNIOR@3 (cost-band). Contract scout/purge. |
+| Eve (Downsizing Manager) | SENIOR | KEEP | 2 | Phase 6: cost 4 → **5**. Dismiss + 3 budget. |
+| Francis (Contracting Coordinator) | SENIOR | REWORK | 2 | Phase 6: cost 4 → **5**. Flow still underspecified — [Francis flow OQ](../design/open-questions.md#francis-contracting-coordinator-flow). |
+| Grace (Headhunter) | SENIOR | KEEP | 2 | Phase 6: cost 4 → **5**. Employee scout/purge. |
 | Haruto (CFO) | SENIOR | KEEP | 2 | +5 budget; dismisses backoffice intern. |
 
-Resulting deck sizes: Junior Admin ~9 cards, Senior Admin ~12 cards.
+Resulting deck sizes: Junior Admin ~11 cards, Senior Admin ~10 cards
+(approx.; see per-card `printCount` / deck construction).
 
 ### Design slots — Backoffice (NEW)
 
 Targets defined by the framework in
 [`../design/balance.md`](../design/balance.md) §2. Same cost-band rule
-(JUNIOR 2-4, SENIOR 5+). Cleanup-pass actions for existing cards
-(Donna, Eve, Francis, Grace cost-band violators) are tracked
-separately as part of Phase 6.
+(JUNIOR 2-4, SENIOR 5+). Phase 6 applied Donna / Eve / Francis / Grace
+cost-band fixes; Francis flow OQ remains.
 
 | Slot ID | Cost | Tier | Role | Copies | Notes |
 |---------|------|------|------|--------|-------|
@@ -135,6 +143,10 @@ separately as part of Phase 6.
 Implementation fallback (per balance §1.5) applies — under-designed
 slots get extra copies of an adjacent unique.
 
+**Phase 6 (2026-04):** every row in the Backoffice design-slot table is
+covered by a **candidate** card in `src/data/employees.tsx` →
+`backoffice` (`candidate: true`).
+
 Coverage decisions deferred to playtest:
 - Whether deck culling stays split between admin (dismiss) and dev
   (Diego, Jake) or consolidates.
@@ -144,7 +156,7 @@ Coverage decisions deferred to playtest:
 
 ## Items (`src/data/items.tsx`)
 
-Source: 13 cards. Default 2 copies each (small deck, 2 market slots).
+Source: 13 released + **6** Phase-6 `candidate` placeholders. Default 2 copies each (small deck, 2 market slots).
 
 | Name | Status | Copies | Note |
 |------|--------|--------|------|
@@ -152,17 +164,26 @@ Source: 13 cards. Default 2 copies each (small deck, 2 market slots).
 | Mechanical keyboard | KEEP | 2 | +2 knowledge. |
 | Flipchart | KEEP | 2 | +2 organization. |
 | Top hat | KEEP | 2 | +1 budget. |
-| Programming socks | KEEP | 2 | +budget; bonus on open-source assignment (DDR-0010). |
-| Energy drink | KEEP | 2 | Typo "drinnk" fixed. |
-| Investment portfolio | KEEP | 2 | Destroy → +3 budget. |
-| Piggy bank | KEEP | 2 | Destroy → +3 budget. |
+| Programming socks | KEEP | 2 | Phase 6: cost-1 premium trim — +💡💡 on Open Source Tech assignment only (no +💲). |
+| Energy drink | KEEP | 2 | Phase 6: cost-1 premium trim — deck-top return only (no +💲). Text cleanup ("equipped to"). |
+| Investment portfolio | KEEP | 2 | Phase 6: removed passive +💲; destroy still → +💲💲💲. |
+| Piggy bank | KEEP | 2 | Destroy → +2 budget. |
 | Beanbag chair | KEEP | 2 | +2 prestige end-of-game. |
 | Foosball table | KEEP | 1 | +5 prestige end-of-game. |
-| Pristine Programs | KEEP | 1 | Flavor typo "famout" → "famous" fixed. |
-| A holy scroll | KEEP | 1 | |
-| Design handbook | KEEP | 1 | |
+| Pristine Programs | KEEP | 1 | Phase 6: stat line tightened (0/2/1) vs cost-4 premium in `balance.md` §3. |
+| A holy scroll | KEEP | 1 | Phase 6: org stat 4→3 vs same premium. |
+| Design handbook | KEEP | 1 | Phase 6: cre stat 3→2 vs same premium. |
+| Candidate — Studio monitor (stat) | NEW | 1 | Phase 6 slot I-2-cre; `candidate: true`. |
+| Candidate — Reference book (stat) | NEW | 1 | Phase 6 slot I-2-kn; `candidate: true`. |
+| Candidate — Label maker (stat) | NEW | 1 | Phase 6 slot I-2-org; `candidate: true`. |
+| Candidate — Sticky workflow | NEW | 1 | Phase 6 slot I-3-wild-a; `candidate: true`. |
+| Candidate — Pocket notebook | NEW | 1 | Phase 6 slot I-3-wild-b; `candidate: true`. |
+| Candidate — Petty cash box | NEW | 2 | Phase 6 slot I-3-budget (`printCount` 2); `candidate: true`. |
+| Candidate — Trophy case | NEW | 1 | Phase 6 slot I-5-prestige; `candidate: true`. |
 
-Resulting item deck size: ~22 cards.
+Resulting item deck size: ~22 + 8 candidate copies (see `printCount` on
+Petty cash box) ≈ **30** item cards in source until candidates are cut
+or merged.
 
 ### Design slots — Items (NEW)
 
@@ -183,11 +204,16 @@ split").
 | I-3-budget    | 3 | destroy-for-budget  | 2 | Sits between Piggy bank (2) and Investment portfolio (4). |
 | I-5-prestige  | 5 | end-of-game prestige | 1 | Cap of the prestige-item ladder; +6-7 EOG prestige. |
 
+**Phase 6 (2026-04):** each Items design-slot row has a **candidate**
+in `src/data/items.tsx` (`candidate: true`). Wildcard slots use
+contract-scout / draw / destroy-for-budget placeholders; tune text vs
+`balance.md` §3.
+
 ---
 
 ## Features (`src/data/functional_contracts.tsx`)
 
-Source: 30 cards. Target: **keep all 30 active for the first
+Source: 30 released + **5** Phase-6 `candidate` placeholders (C-031–C-035). Target: **keep all 30 active for the first
 playtest** — better to test more cards than to cut some
 preemptively. Deck-size scaling for higher player counts is
 intended to be handled by **player-count tags** on contracts (see
@@ -221,7 +247,7 @@ post-MVP.
 | C-018 | Custom font face | KEEP | 1 | Previously flagged as candidate-cut (overlaps Logo + custom-font Tech). Kept for first playtest; candidate for a `4P` tag if the deck needs trimming at low player counts. |
 | C-019 | Hover texts | KEEP | 1 | Previously flagged candidate-cut (very narrow scope, SP 2). Kept; story-point pacing OK for T1 band. |
 | C-020 | Logo | KEEP | 1 | |
-| C-021 | Legal compliance | KEEP | 1 | Typo "everythinh" → "everything" fixed. |
+| C-021 | Legal compliance | KEEP | 1 | Typo fixed. Phase 6: 🗒️ requirement 8→7 (T3 single-stat max); SP unchanged. |
 | C-022 | Accessible design | KEEP | 1 | Typo "Differnces" → "Differences" fixed. |
 | C-023 | Customer Support Chatbot | KEEP | 1 | |
 | C-024 | Interactive Tutorial | KEEP | 1 | Previously flagged candidate-cut (overlaps User manual + Chatbot). Kept; candidate for a `3-4P` tag. |
@@ -231,10 +257,20 @@ post-MVP.
 | C-028 | Personalized Recommendations | KEEP | 1 | Previously flagged candidate-cut (niche, depends on analytics). Kept; candidate for a `3-4P` tag. |
 | C-029 | Gamification | KEEP | 1 | |
 | C-030 | Offline Mode | KEEP | 1 | Previously flagged candidate-cut (high requirements + niche). Kept as a T4-band stress-test card; candidate for a `4P` tag. |
+| C-031 | Candidate — Org checklist (T1) | NEW | 1 | Phase 6 design slot F-T1-org; `candidate: true`. |
+| C-032 | Candidate — Knowledge primer (T1) | NEW | 1 | Phase 6 design slot F-T1-kn; `candidate: true`. |
+| C-033 | Candidate — Creative spike (T1) | NEW | 1 | Phase 6 design slot F-T1-cre; `candidate: true`. |
+| C-034 | Candidate — Immersive experience (T4) | NEW | 1 | Phase 6 design slot F-T4-cre; `candidate: true`. |
+| C-035 | Candidate — Platform overhaul (T4) | NEW | 1 | Phase 6 design slot F-T4-bal; `candidate: true`. |
 
-Active feature pool: **30 cards** (was targeting cuts down to 25;
+Active feature pool: **35** entries in source (**30** released + **5**
+candidates; was targeting cuts down to 25;
 revised — see notes above). Distribution across difficulty bands is
 audited in `balance.md` §4.
+
+**Phase 6 (feature balance):** `storyPoints` on C-002, C-007, C-011,
+C-012, C-017, C-025 retuned to match skill-total tier vs `balance.md`
+§4.2–§4.3; pacing `notes` removed from released rows in source.
 
 ### Design slots — Features (NEW)
 
@@ -259,6 +295,10 @@ stay active for the first playtest. Deck-size scaling is handled
 by the player-count tag system (see open question), not by
 cutting cards from the design pool.
 
+**Phase 6 (2026-04):** design-slot rows F-T1-* / F-T4-* are filled by
+**candidate** features C-031–C-035 in `functional_contracts.tsx`
+(`candidate: true`).
+
 ---
 
 ## Technologies (`src/data/tecnical_contracts.tsx`)
@@ -269,7 +309,8 @@ each** (variety over duplication for the playtest). Cuts are commented
 out in place — `cardNumber` slots are **not** reused; final
 resequencing happens close to release.
 
-Active uniques after Phase 3: **21** ✓ (see status `KEEP` rows).
+Active uniques: **21** released + **3** Phase-6 candidates (T-025–T-027)
+= **24** entries in source (see status `KEEP` / candidate rows).
 
 DDR-0010 audit rule: top half must be standalone and self-consistent.
 **Empty ("do-nothing") top halves are explicitly allowed** (see DDR-0010
@@ -290,19 +331,22 @@ proportional to skill totals (see open-questions for the mapping).
 | T-009 | Low Code Solution | KEEP | 1 | 3 | "Set ⚙️ requirement to 0" — `multiUse: false` semantics intentionally once-per-published-instance for MVP. |
 | T-010 | Design system | KEEP | 1 | 3 | Renamed from "Design handbook" to avoid name collision with the item. |
 | T-011 | Reusable UI components | KEEP | 1 | 3 | Empty top is intentional (DDR-0010 clarification). |
-| T-012 | Logging framework | KEEP | 1 | 1 | Empty top is intentional (DDR-0010 clarification). |
+| T-012 | Logging framework | KEEP | 1 | 2 | Phase 6: required skills raised to T1 floor (total 10); `openSourcePrestige` 1→2. Empty top intentional (DDR-0010). |
 | T-013 | Code sharing platform | KEEP | 1 | 3 | Bottom prestige value 2 → 3 to match canonical card text "+⭐⭐⭐" (DDR-0011). |
 | T-014 | Debugging tools | KEEP | 1 | 2 | Typo "assginment" fixed. |
 | T-015 | Issue tracker | KEEP | 1 | 3 | Typos "assing" and "assginment" fixed. |
 | T-016 | Headhunting algorithms | KEEP | 1 | 3 | "Project start" trigger reads as "right after a Project Release". |
-| T-017 | Custom font | KEEP | 1 | 1 | Descriptions rewritten to match data: top "+🗒️ towards each assignment", bottom "+💡💡 towards an assignment with 💡 requirement of 6 or higher". |
-| T-018 | Spreadsheet macros | KEEP | 1 | 1 | Renumbered from duplicate T-017. |
+| T-017 | Custom font | KEEP | 1 | 2 | Phase 6: required skills raised to T1 floor (total 10); `openSourcePrestige` 1→2. |
+| T-018 | Spreadsheet macros | KEEP | 1 | 2 | Phase 6: required skills raised to T1 floor (total 10); `openSourcePrestige` 1→2. Renumbered from duplicate T-017. |
 | T-019 | Mobile App | NEW | 1 | 3 | Phase 3. completionEffects: ➕💲💲💲. Top: ➕💲 on FeatureCompletion. Bottom: ➕🗒️ on FeatureAssignment. Skill total 13. |
 | T-020 | Search / SEO Indexing | NEW | 1 | 3 | Phase 3. Top: scout 3 contracts on FeatureCompletion. Bottom: ➕💡 on FeatureAssignment. Skill total 13. |
 | T-021 | Recruiting Automation | NEW | 1 | 3 | Phase 3 (user-designed). Renamed from "Headhunting Database" to avoid name collision with T-016 Headhunting algorithms. Top: first hire each turn refunds ➕💲 (Hire trigger, BUDGET +1, multiUse:false). Bottom: on employee market refill, look at top 2, put 1 on bottom. Skill total 11. Bottom-effect uses "NONE" trigger placeholder (no native enum for "on market refill"); canonical text is the rule (DDR-0011). |
 | T-022 | A/B Testing Framework | NEW | 1 | 3 | Phase 3. Top: ➕⭐ on FeatureCompletion. Bottom: ➕💡 on FeatureAssignment. Pairs with T-008 (UX). |
 | T-023 | Tech Blog | NEW | 1 | 3 | Phase 3. Top: ➕⭐ on TechCompletion (any). Bottom: ➕💡 on TechAssignment (any). |
 | T-024 | Open Source License | NEW | 1 | 2 | Phase 3. Top: ➕⭐⭐ on Open Source TechCompletion. Bottom: ➕⚙️➕💡 on TechAssignment (any). Synergy with T-013 / T-023. |
+| T-025 | Candidate — Workflow engine (T1 org) | NEW | 1 | 2 | Phase 6 slot TC-T1-org; `candidate: true`. |
+| T-026 | Candidate — Creative toolchain (T2 cre) | NEW | 1 | 3 | Phase 6 slot TC-T2-cre; `candidate: true`. |
+| T-027 | Candidate — Company operating system (T4 cap) | NEW | 1 | 5 | Phase 6 slot TC-T4-cap; `candidate: true`. |
 
 ### Design slots — Technologies (NEW)
 
@@ -317,10 +361,11 @@ already in the 20-24 target band, so slot count is conservative.
 | TC-T2-cre | T2 | 13 | creativity   | Fills the creative-tech gap. |
 | TC-T4-cap | T4 | 18+ | balanced or focus | Capstone "always-on" defining engine card; 1 copy. |
 
-Cleanup-pass actions for the existing pool (out-of-band techs T-012
-total 4, T-017 total 5, T-018 total 5) are tracked separately as
-part of Phase 6 — typical resolution is to raise their requirements
-to the T1 floor (~9-10) or move them to features.
+**Phase 6 (2026-04):** T-025 / T-026 / T-027 are **candidate** drafts for
+the three rows above (`candidate: true` in `tecnical_contracts.tsx`).
+
+**Resolved (Phase 6):** T-012 / T-017 / T-018 requirements raised to the
+T1 skill-total band (~10); see `balance.md` §5.2.
 
 ---
 

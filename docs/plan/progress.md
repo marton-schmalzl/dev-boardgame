@@ -141,26 +141,32 @@ design slots: [`inventory.md`](inventory.md) "Design slots" sub-tables.
   (Production, Backoffice, Items, Features, Technologies).
 - [x] "Items split — equippable vs general" open question added to
   `open-questions.md`.
-- [ ] Existing-card cleanup pass (separate session): cost-band
-  reclassifications and rewrites.
-  - [ ] Production: Kyle SENIOR cost 4 → JUNIOR cost 4; Sophia SENIOR
-    cost 4 → SENIOR cost 5 (or rebalance stats); John (Mentor) text
-    rewritten without Medior reference; Luke (Copycat) stat-floor
-    decision; Steve / Jake drawback math re-checked vs. new tiers.
-  - [ ] Backoffice: cost-band violators (Donna cost-3 SENIOR; Eve /
-    Francis / Grace cost-4 SENIOR) reclassified to JUNIOR or bumped
-    in cost; Francis flow rewritten.
-  - [ ] Items: existing items audited against the cost-tier stat
-    budgets in `balance.md` §3.
+- [x] Internal card meta for tooling: optional `candidate` and `notes`
+  on `Playable` + `Contract`; preview-only `CardMetaBadges` (`?` /
+  `!` with hover on notes, hidden in print).
+- [~] Existing-card cleanup pass: **cost bands, John, sub-T1 techs, and
+  a first item premium pass** landed in data + `inventory.md`. Open
+  tuning (Luke / Steve / Jake, Francis flow) still tracked via `notes` /
+  OQs where applicable.
+  - [x] Production: Kyle → JUNIOR @4; Sophia cost **5**; John MVP text
+    (dismiss Junior, hire Senior from market paying 4 less). Luke /
+    Steve / Jake: left with `notes` for playtest.
+  - [x] Backoffice: Donna → JUNIOR @3; Eve / Grace / Francis cost **5**.
+    Francis: flow still OQ (not rewritten).
+  - [x] Items: first `balance.md` §3 pass on released items (socks,
+    energy drink, investment passive, cost-4 stat+prestige trio).
   - [x] Features: candidate-cut decisions reversed — all 30 features
     kept active for first playtest; deck-size scaling deferred to
     the player-count tag system (open question).
-  - [ ] Features: story-point pacing audited against `balance.md`
-    §4.3 (independent of the cut/keep decision).
-  - [ ] Technologies: out-of-band techs (T-012 total 4, T-017 total 5,
-    T-018 total 5) raised to T1 floor or moved to features.
-- [ ] New card drafts (separate session): each row in the "Design
-  slots" sub-tables filled with a real card.
+  - [x] Features: story-point pacing vs `balance.md` §4.2–§4.3 — SP
+    values adjusted on C-002, C-007, C-011, C-012, C-017, C-025;
+    C-021 🗒️ requirement 8→7 for T3 single-stat cap; internal pacing
+    `notes` cleared from released features.
+  - [x] Technologies: T-012 / T-017 / T-018 raised to T1 skill-total
+    band; `openSourcePrestige` bumped on those three to match.
+- [x] New card drafts: each "Design slots" row has a **candidate**
+  placeholder in `src/data/*.tsx` (`candidate: true`, slot ID in
+  `notes`); replace with final art/names/rules before print.
 
 ## Playtest #1
 

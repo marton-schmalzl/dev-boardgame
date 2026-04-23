@@ -16,6 +16,19 @@ Format:
 
 ### Added
 
+- `src/model/cards/Playable.ts`, `src/model/contracts/Contract.ts` —
+  optional internal fields `candidate` and `notes` for design
+  book-keeping.
+- `src/components/common/CardMetaBadges.tsx` — preview-only corner
+  badges (`?` for candidates, `!` with hover `title` for notes;
+  `no-print` so print/PDF stays clean); wired into all card
+  components.
+- Phase 6 **candidate** placeholder cards: every row in
+  `docs/plan/inventory.md` "Design slots" sub-tables now has a draft
+  in `src/data/employees.tsx` (production + backoffice),
+  `src/data/items.tsx`, `src/data/functional_contracts.tsx` (C-031–
+  C-035), and `src/data/tecnical_contracts.tsx` (T-025–T-027), each
+  marked `candidate: true` with `notes` citing the slot ID.
 - `docs/design/balance.md` — first version of the **balance framework**:
   cost-band rule (JUNIOR 2-4, SENIOR 5+), per-cost stat-budget targets,
   copy-count curve, design-philosophy-by-cost-tier, item cost premium,
@@ -28,12 +41,38 @@ Format:
 
 ### Changed
 
-- `docs/plan/inventory.md` — Features: previously-flagged
-  candidate-cuts (C-018, C-019, C-024, C-028, C-030) reverted to
-  `KEEP`; deck-size scaling will be handled by the proposed
-  player-count tag system rather than by preemptive cuts. Active
-  feature pool target raised from ~25 to ~30. `balance.md` §4 feature
-  band targets relaxed to a range to match.
+- `src/data/functional_contracts.tsx` — feature **balance**: story
+  points aligned to `balance.md` §4.2–§4.3 (C-002 / C-011 / C-012 /
+  C-017 5→4; C-007 5→6; C-025 3→5); C-021 organization requirement
+  **8→7** for T3 single-stat cap; internal SP pacing `notes` removed
+  from released features.
+- `docs/plan/inventory.md`, `docs/plan/progress.md`,
+  `docs/design/balance.md` — feature SP / tier cleanup documented;
+  progress checklist marks feature pacing done.
+- Phase 6 **cleanup pass (data)** — `src/data/tecnical_contracts.tsx`:
+  T-012 / T-017 / T-018 `requiredSkills` raised into T1 band (~10
+  total); `openSourcePrestige` 1→2 on those cards.
+- Phase 6 **cleanup pass (data)** — `src/data/employees.tsx`: cost /
+  tier band fixes (Kyle → JUNIOR @4; Sophia cost 5; John MVP mentor
+  text + `TRAINING` value 4; Donna → JUNIOR @3; Eve / Grace / Francis
+  cost 5); cost-band `notes` cleared where fixed; Francis keeps flow
+  OQ note.
+- Phase 6 **cleanup pass (data)** — `src/data/items.tsx`: cost-1
+  premium trims (programming socks, energy drink); investment loses
+  passive +💲; Pristine Programs / holy scroll / design handbook stat
+  lines tightened vs `balance.md` §3.
+- `docs/plan/inventory.md`, `docs/plan/progress.md`,
+  `docs/design/balance.md`, `docs/design/open-questions.md` — aligned
+  with the above (tier counts 9/7 production, 4/5 admin; tech / item
+  notes; John OQ points at wired card text).
+- `docs/plan/inventory.md` — Phase 6: counts / rows for candidate
+  cards; design-slot sub-tables cross-linked to source placeholders.
+  (Earlier change: previously-flagged feature candidate-cuts C-018 /
+  C-019 / C-024 / C-028 / C-030 reverted to `KEEP`; deck-size scaling
+  via player-count tags; active feature pool ~30 + design slots.)
+- `docs/plan/progress.md` — Phase 6: cleanup checklist updated (cost
+  bands / John / tech floor / item pass done; Francis flow, feature SP
+  sweep, Luke/Steve/Jake notes still open).
 - Preview app routing (`react-router-dom`): **Playable cards**, **Assignments**,
   and **Game board** pages; filters on card pages; **print view** (`?print=1`
   or toolbar) plus `src/styles/print.css` so PDF export hides chrome; A2

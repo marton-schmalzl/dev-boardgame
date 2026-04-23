@@ -5,6 +5,7 @@ import CardHeader from '../common/CardHeader';
 import CostDisplay from '../common/CostDisplay';
 import OutlinedBox from '../ui/OutlinedBox';
 import AbilityBox from '../common/AbilityBox';
+import CardMetaBadges from '../common/CardMetaBadges';
 
 interface BackOfficeEmployeeCardProps {
   employee: Person;
@@ -16,6 +17,7 @@ const BackOfficeEmployeeCard: React.FC<BackOfficeEmployeeCardProps> = ({ employe
 
   return (
     <GameCard variant={variant}>
+      <CardMetaBadges candidate={employee.candidate} notes={employee.notes} />
       {/* Header */}
       <div className="w-full">
         <CardHeader
