@@ -16,6 +16,24 @@ Format:
 
 ### Added
 
+- `docs/design/balance.md` — first version of the **balance framework**:
+  cost-band rule (JUNIOR 2-4, SENIOR 5+), per-cost stat-budget targets,
+  copy-count curve, design-philosophy-by-cost-tier, item cost premium,
+  feature / technology difficulty bands, and strategic-axis sanity
+  checks. Living tuning doc next to DESIGN.md.
+- `docs/plan/inventory.md` — "Design slots" sub-tables added to every
+  card category (Production, Backoffice, Items, Features,
+  Technologies); each row is a NEW slot with target cost / stats /
+  copies / role notes, mirroring `balance.md`.
+
+### Changed
+
+- `docs/plan/inventory.md` — Features: previously-flagged
+  candidate-cuts (C-018, C-019, C-024, C-028, C-030) reverted to
+  `KEEP`; deck-size scaling will be handled by the proposed
+  player-count tag system rather than by preemptive cuts. Active
+  feature pool target raised from ~25 to ~30. `balance.md` §4 feature
+  band targets relaxed to a range to match.
 - Preview app routing (`react-router-dom`): **Playable cards**, **Assignments**,
   and **Game board** pages; filters on card pages; **print view** (`?print=1`
   or toolbar) plus `src/styles/print.css` so PDF export hides chrome; A2
@@ -95,6 +113,13 @@ goal of Government Project).
 
 ### Open Question
 
+- Items split — equippable vs general / play-then-discard items. MVP
+  default: stay equippable-only, revisit post-playtest #1. Documented
+  in `docs/design/open-questions.md` → "Items split".
+- Player-count contract tags — proposal to control deck size via a
+  per-contract minimum-player-count tag (e.g. `2P+` / `3P+` / `4P
+  only`) instead of cutting uniques. MVP default: untagged. Documented
+  in `docs/design/open-questions.md` → "Player-count contract tags".
 - John (Mentor) ability post-Medior — what replaces "hire a medior
   programmer for free"? Working proposal documented in
   `docs/design/open-questions.md`.

@@ -53,10 +53,49 @@ default placeholder value to work with through the MVP playtest.
 - **Default placeholder**: 2 slots.
 - **What we test**: are 2 enough? Maybe 3 makes for more interesting choices.
 
+### Items split — equippable vs general
+- **Source**: balance pass (Phase 6), see
+  [`balance.md`](balance.md) §3.
+- **Question**: should the item type be split into **equippable items**
+  (current behaviour: attached to an employee, leaves with them) and a
+  new **general items** category (e.g. play-card → do-thing one-shots,
+  not bound to an employee)? The split would unlock wildcard effects
+  that don't fit the equip model (one-shot deck manipulation, market
+  scout, conditional budget bursts, etc.).
+- **MVP default**: **stay equippable-only**. Revisit post-playtest #1.
+  If the split is taken in, it requires a new DDR (structural change
+  to the item type) and re-flowing the item design slots in
+  `../plan/inventory.md`.
+- **What we test**: whether the item pool feels too constrained — i.e.,
+  whether wildcard effects we want to add keep getting awkward as
+  equip-only items.
+
 ### Assignment market
 - **Source**: DDR-0003
 - **Default placeholder**: 3 Feature slots + 3 Technology slots.
 - **What we test**: how the competition for assignments feels.
+
+### Player-count contract tags
+- **Source**: balance pass (Phase 6), see
+  [`balance.md`](balance.md) §4.
+- **Question**: rather than cutting unique contracts to control deck
+  size, should contracts carry a **player-count tag** (e.g. `2P+`
+  default / `3P+` / `4P only`) so the active deck scales with the
+  table size at setup? Setup would filter the deck to "tag ≤ player
+  count" before shuffling.
+- **Working proposal**: a `playerCount?: 2 | 3 | 4` minimum field on
+  `Contract`. Untagged = always in. Initial tagging candidates from
+  the Phase 2 audit (no longer being cut): C-018, C-024, C-028, C-030
+  for 3P+ or 4P-only. Same idea applies to Technologies.
+- **MVP default**: **untagged** — every contract is in the deck for
+  the first playtest. Revisit if the deck feels oversized at 2 players
+  (too many low-impact features in rotation, or contract row stagnates).
+- **What we test**: deck pacing at 2 vs. 3 vs. 4 players; whether the
+  deck-out → assignment-deck-empty end trigger fires too early at low
+  player counts.
+- **Structural impact**: if adopted, this is a new field on the
+  `Contract` interface in `src/model/contracts/Contract.ts` and a new
+  DDR (similar in scope to DDR-0006 Industry).
 
 ---
 

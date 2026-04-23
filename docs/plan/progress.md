@@ -129,6 +129,39 @@ See: [`inventory.md`](inventory.md)
   feature cards
 - [ ] Optional: Vitest smoke tests for `/assignments` and `/board`
 
+## Phase 6 — Balance pass
+
+Framework: [`docs/design/balance.md`](../design/balance.md). Per-category
+design slots: [`inventory.md`](inventory.md) "Design slots" sub-tables.
+
+- [x] Balance framework written (cost-band rule, stat-budget targets,
+  copy-count curve, design-philosophy-by-cost-tier, item premium,
+  feature/tech difficulty bands, strategic-axis sanity checks).
+- [x] Design slots logged in `inventory.md` for every category
+  (Production, Backoffice, Items, Features, Technologies).
+- [x] "Items split — equippable vs general" open question added to
+  `open-questions.md`.
+- [ ] Existing-card cleanup pass (separate session): cost-band
+  reclassifications and rewrites.
+  - [ ] Production: Kyle SENIOR cost 4 → JUNIOR cost 4; Sophia SENIOR
+    cost 4 → SENIOR cost 5 (or rebalance stats); John (Mentor) text
+    rewritten without Medior reference; Luke (Copycat) stat-floor
+    decision; Steve / Jake drawback math re-checked vs. new tiers.
+  - [ ] Backoffice: cost-band violators (Donna cost-3 SENIOR; Eve /
+    Francis / Grace cost-4 SENIOR) reclassified to JUNIOR or bumped
+    in cost; Francis flow rewritten.
+  - [ ] Items: existing items audited against the cost-tier stat
+    budgets in `balance.md` §3.
+  - [x] Features: candidate-cut decisions reversed — all 30 features
+    kept active for first playtest; deck-size scaling deferred to
+    the player-count tag system (open question).
+  - [ ] Features: story-point pacing audited against `balance.md`
+    §4.3 (independent of the cut/keep decision).
+  - [ ] Technologies: out-of-band techs (T-012 total 4, T-017 total 5,
+    T-018 total 5) raised to T1 floor or moved to features.
+- [ ] New card drafts (separate session): each row in the "Design
+  slots" sub-tables filled with a real card.
+
 ## Playtest #1
 
 - [ ] Played

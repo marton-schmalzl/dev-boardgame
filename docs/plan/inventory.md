@@ -50,6 +50,39 @@ Resulting tier balance: **8 Junior + 8 Senior** ✓
 | Luke (Copycat) | JUNIOR | KEEP | 2 | "Copy stats" rule: see [open-questions → Luke (Copycat) — does Copy include items?](../design/open-questions.md#luke-copycat--does-copy-include-items). |
 | Tom (Natural architect) | JUNIOR | KEEP | 2 | |
 
+### Design slots — Production (NEW)
+
+Targets defined by the framework in
+[`../design/balance.md`](../design/balance.md). Cost-band rule: JUNIOR
+cost 2-4, SENIOR cost 5+. See balance §1 for stat budgets and copy
+curve. Cleanup-pass actions for existing cards (Kyle, Sophia,
+John, Luke, Steve, Jake) are tracked separately as part of Phase 6.
+
+| Slot ID | Cost | Tier | Focus | Target stats (cre/kn/org) | Copies | Notes |
+|---------|------|------|-------|----------------------------|--------|-------|
+| PJ-2-kn  | 2 | JUNIOR | knowledge   | 1/2/1 | 3 | Fills the cost-2 knowledge gap. No ability. |
+| PJ-3-kn  | 3 | JUNIOR | knowledge   | 1/4/1 | 3 | No ability. Meat-and-potatoes filler. |
+| PJ-3-org | 3 | JUNIOR | organization| 1/1/4 | 3 | No ability. Meat-and-potatoes filler. |
+| PJ-4-cre | 4 | JUNIOR | creativity  | 4/1/3 | 2 | Light trigger from existing template. |
+| PJ-4-org | 4 | JUNIOR | organization| 1/3/4 | 2 | No ability. |
+| PJ-4-bal | 4 | JUNIOR | balanced    | 3/3/2 | 2 | Optional — only if the balanced row needs more body. Small assignment-based bonus. |
+| PS-5-cre | 5 | SENIOR | creativity  | 6/2/4 | 2 | Existing-template synergy ability. |
+| PS-5-org | 5 | SENIOR | organization| 2/4/6 | 2 | Existing-template synergy ability. |
+| PS-5-bal | 5 | SENIOR | balanced    | 4/4/4 | 2 | No drawback. Small ability. |
+| PS-6-cre | 6 | SENIOR | creativity  | 6/3/4 | 2 | Defining ability. |
+| PS-6-kn  | 6 | SENIOR | knowledge   | 3/6/4 | 2 | Defining ability. |
+| PS-6-bal | 6 | SENIOR | balanced    | 5/5/4 | 2 | Defining ability. |
+| PS-7-a   | 7 | SENIOR | (cre anchor) | ~5/5/5 shifted to creativity | 1 | Strategy-defining anchor; single copy. |
+| PS-7-b   | 7 | SENIOR | (kn anchor)  | ~5/5/5 shifted to knowledge  | 1 | Strategy-defining anchor; single copy. |
+| PS-7-c   | 7 | SENIOR | (org anchor) | ~5/5/5 shifted to organization| 1 | Strategy-defining anchor; single copy. |
+| PS-8-a   | 8 | SENIOR | capstone    | ~6/6/6 baseline | 1 | Distinct end-game payoff #1. Single copy. |
+| PS-8-b   | 8 | SENIOR | capstone    | ~6/6/6 baseline | 1 | Distinct end-game payoff #2. Single copy. |
+| PS-8-c   | 8 | SENIOR | capstone    | ~6/6/6 baseline | 1 | Distinct end-game payoff #3. Single copy. |
+
+Implementation fallback (per balance §1.5): if a designed slot has no
+card concept by execution time, print extra copies of an adjacent
+unique. Don't trim plan numbers.
+
 ---
 
 ## Admin Employees (`src/data/employees.tsx` → `backoffice`)
@@ -73,6 +106,39 @@ Tier balance: **3 Junior + 6 Senior**.
 | Haruto (CFO) | SENIOR | KEEP | 2 | +5 budget; dismisses backoffice intern. |
 
 Resulting deck sizes: Junior Admin ~9 cards, Senior Admin ~12 cards.
+
+### Design slots — Backoffice (NEW)
+
+Targets defined by the framework in
+[`../design/balance.md`](../design/balance.md) §2. Same cost-band rule
+(JUNIOR 2-4, SENIOR 5+). Cleanup-pass actions for existing cards
+(Donna, Eve, Francis, Grace cost-band violators) are tracked
+separately as part of Phase 6.
+
+| Slot ID | Cost | Tier | Role | Copies | Notes |
+|---------|------|------|------|--------|-------|
+| BJ-2-budget+kicker | 2 | JUNIOR | budget + tiny kicker | 3 | Sister card to Alice / Ahmed; explicit near-variant slot. ~+2 BUDGET + small effect. |
+| BJ-3-draw  | 3 | JUNIOR | card draw          | 2 | Small draw effect (e.g. "draw 1, then discard 1") at 0 BUDGET. |
+| BJ-3-items | 3 | JUNIOR | item-market scout  | 2 | Look-at / refill access to the item deck. |
+| BJ-4-cull  | 4 | JUNIOR | dismiss + budget   | 2 | Sister to Tina, rebalanced upward (+1 BUDGET on top of dismiss). |
+| BS-5-draw  | 5 | SENIOR | card draw          | 2 | "Draw 2 cards" + 0-1 BUDGET. |
+| BS-5-recur | 5 | SENIOR | discard recursion  | 2 | "Return a non-prestige card from your discard to your hand." |
+| BS-6-discount | 6 | SENIOR | hire discount    | 2 | "This turn, employee hires cost 1 less" + 1-2 BUDGET. |
+| BS-6-items    | 6 | SENIOR | item-market mgmt | 2 | Scout / purge analogue of Donna / Grace, targeting items. |
+| BS-7-a | 7 | SENIOR | indirect accelerator    | 1 | Once-per-turn lower an assignment's stat requirement. Single copy. |
+| BS-7-b | 7 | SENIOR | mega-CFO (budget)        | 1 | Big-budget anchor, sister to Haruto. Single copy. |
+| BS-7-c | 7 | SENIOR | heavy market controller  | 1 | Multi-row scout / refill control. Single copy. |
+| BS-8-a | 8 | SENIOR | mega-utility combo       | 1 | Draw + dismiss + budget. Single copy. |
+| BS-8-b | 8 | SENIOR | strategic enabler        | 1 | Distinct lategame engine. Single copy. |
+| BS-8-c | 8 | SENIOR | strategic enabler        | 1 | Distinct lategame engine. Single copy. |
+
+Implementation fallback (per balance §1.5) applies — under-designed
+slots get extra copies of an adjacent unique.
+
+Coverage decisions deferred to playtest:
+- Whether deck culling stays split between admin (dismiss) and dev
+  (Diego, Jake) or consolidates.
+- Whether item-market access lives on backoffice or on items themselves.
 
 ---
 
@@ -98,13 +164,40 @@ Source: 13 cards. Default 2 copies each (small deck, 2 market slots).
 
 Resulting item deck size: ~22 cards.
 
+### Design slots — Items (NEW)
+
+Targets defined by the framework in
+[`../design/balance.md`](../design/balance.md) §3. Items are
+**equippable-only for MVP**; the equippable-vs-general split is logged
+as an open question (see
+[`../design/open-questions.md`](../design/open-questions.md) → "Items
+split").
+
+| Slot ID | Cost | Role | Copies | Notes |
+|---------|------|------|--------|-------|
+| I-2-cre | 2 | +creativity stat | 1 | Cost-2 stat item; +3 creativity, no other text. |
+| I-2-kn  | 2 | +knowledge stat  | 1 | Cost-2 stat item; +3 knowledge, no other text. |
+| I-2-org | 2 | +organization stat | 1 | Cost-2 stat item; +3 organization, no other text. |
+| I-3-wild-a    | 3 | wildcard utility    | 1-2 | Fills the empty cost-3 band. Non-stat utility (e.g. once-per-turn extra hire-market scout). |
+| I-3-wild-b    | 3 | wildcard utility    | 1-2 | Second wildcard idea (e.g. draw-1 trigger). |
+| I-3-budget    | 3 | destroy-for-budget  | 2 | Sits between Piggy bank (2) and Investment portfolio (4). |
+| I-5-prestige  | 5 | end-of-game prestige | 1 | Cap of the prestige-item ladder; +6-7 EOG prestige. |
+
 ---
 
 ## Features (`src/data/functional_contracts.tsx`)
 
-Source: 30 cards. Target: ~20–25 unique, 1 copy each. The `sector`
-(Industry) field is kept on the data and stays optional on the model
-(DDR-0006); inactive for MVP, may revisit post-MVP.
+Source: 30 cards. Target: **keep all 30 active for the first
+playtest** — better to test more cards than to cut some
+preemptively. Deck-size scaling for higher player counts is
+intended to be handled by **player-count tags** on contracts (see
+[`../design/open-questions.md`](../design/open-questions.md) →
+"Player-count contract tags") rather than by cutting cards from
+the design pool.
+
+The `sector` (Industry) field is kept on the data and stays
+optional on the model (DDR-0006); inactive for MVP, may revisit
+post-MVP.
 
 | ID | Name | Status | Copies | Note |
 |----|------|--------|--------|------|
@@ -125,22 +218,46 @@ Source: 30 cards. Target: ~20–25 unique, 1 copy each. The `sector`
 | C-015 | Push notifications | KEEP | 1 | |
 | C-016 | Reporting | KEEP | 1 | |
 | C-017 | User manual | KEEP | 1 | |
-| C-018 | Custom font face | ? | 1 | Candidate-cut: overlaps Logo + custom-font Tech. |
-| C-019 | Hover texts | ? | 1 | Candidate-cut: storyPoints 2, very narrow scope. |
+| C-018 | Custom font face | KEEP | 1 | Previously flagged as candidate-cut (overlaps Logo + custom-font Tech). Kept for first playtest; candidate for a `4P` tag if the deck needs trimming at low player counts. |
+| C-019 | Hover texts | KEEP | 1 | Previously flagged candidate-cut (very narrow scope, SP 2). Kept; story-point pacing OK for T1 band. |
 | C-020 | Logo | KEEP | 1 | |
 | C-021 | Legal compliance | KEEP | 1 | Typo "everythinh" → "everything" fixed. |
 | C-022 | Accessible design | KEEP | 1 | Typo "Differnces" → "Differences" fixed. |
 | C-023 | Customer Support Chatbot | KEEP | 1 | |
-| C-024 | Interactive Tutorial | ? | 1 | Candidate-cut: overlaps User manual + Chatbot. |
+| C-024 | Interactive Tutorial | KEEP | 1 | Previously flagged candidate-cut (overlaps User manual + Chatbot). Kept; candidate for a `3-4P` tag. |
 | C-025 | Social Media Integration | KEEP | 1 | |
 | C-026 | Multilingual Support | KEEP | 1 | |
 | C-027 | Advanced Search | KEEP | 1 | |
-| C-028 | Personalized Recommendations | ? | 1 | Candidate-cut: depends on analytics, niche. |
+| C-028 | Personalized Recommendations | KEEP | 1 | Previously flagged candidate-cut (niche, depends on analytics). Kept; candidate for a `3-4P` tag. |
 | C-029 | Gamification | KEEP | 1 | |
-| C-030 | Offline Mode | ? | 1 | Candidate-cut: high requirements + niche. |
+| C-030 | Offline Mode | KEEP | 1 | Previously flagged candidate-cut (high requirements + niche). Kept as a T4-band stress-test card; candidate for a `4P` tag. |
 
-5 candidate-cuts pre-marked → if all dropped: 25 features. Final cut
-decision deferred to a dry-run sort (Phase 3 / pre-playtest).
+Active feature pool: **30 cards** (was targeting cuts down to 25;
+revised — see notes above). Distribution across difficulty bands is
+audited in `balance.md` §4.
+
+### Design slots — Features (NEW)
+
+Targets defined by the framework in
+[`../design/balance.md`](../design/balance.md) §4. Bands: T1 4-6 / T2
+7-9 / T3 10-12 / T4 13-15 (skill total). Story-point pacing: T1 2-3,
+T2 3-4, T3 4-6, T4 6-8.
+
+Current pool is light at the **T1 floor** and the **T4 ceiling**;
+mid-band (T2/T3) is already saturated.
+
+| Slot ID | Tier | Skill total | Single-stat max | Focus | Story points | Notes |
+|---------|------|-------------|------------------|-------|---------------|-------|
+| F-T1-org | 1 | 5 | 3 | organization | 2-3 | Easy organization-focus. Completable by interns + 1-2 juniors. |
+| F-T1-kn  | 1 | 5 | 3 | knowledge    | 2-3 | Easy knowledge-focus. Same pacing. |
+| F-T1-cre | 1 | 6 | 4 | creativity   | 3   | Easy creativity-focus. |
+| F-T4-cre | 4 | 13-14 | 7-8 | creativity | 6-7 | Hard creativity-focus. Senior + supporters. |
+| F-T4-bal | 4 | 14    | 6   | balanced   | 7   | Hard balanced. Two mid seniors or 1 high senior + helpers. |
+
+No candidate-cuts in this slot list — all 30 existing features
+stay active for the first playtest. Deck-size scaling is handled
+by the player-count tag system (see open question), not by
+cutting cards from the design pool.
 
 ---
 
@@ -186,6 +303,24 @@ proportional to skill totals (see open-questions for the mapping).
 | T-022 | A/B Testing Framework | NEW | 1 | 3 | Phase 3. Top: ➕⭐ on FeatureCompletion. Bottom: ➕💡 on FeatureAssignment. Pairs with T-008 (UX). |
 | T-023 | Tech Blog | NEW | 1 | 3 | Phase 3. Top: ➕⭐ on TechCompletion (any). Bottom: ➕💡 on TechAssignment (any). |
 | T-024 | Open Source License | NEW | 1 | 2 | Phase 3. Top: ➕⭐⭐ on Open Source TechCompletion. Bottom: ➕⚙️➕💡 on TechAssignment (any). Synergy with T-013 / T-023. |
+
+### Design slots — Technologies (NEW)
+
+Targets defined by the framework in
+[`../design/balance.md`](../design/balance.md) §5. Bands: T1 9-11 /
+T2 12-14 / T3 15-17 / T4 18+ (skill total). Active tech total is
+already in the 20-24 target band, so slot count is conservative.
+
+| Slot ID | Tier | Skill total | Focus | Notes |
+|---------|------|-------------|-------|-------|
+| TC-T1-org | T1 | 10 | organization | Balances current cre/kn-heavy tech distribution. |
+| TC-T2-cre | T2 | 13 | creativity   | Fills the creative-tech gap. |
+| TC-T4-cap | T4 | 18+ | balanced or focus | Capstone "always-on" defining engine card; 1 copy. |
+
+Cleanup-pass actions for the existing pool (out-of-band techs T-012
+total 4, T-017 total 5, T-018 total 5) are tracked separately as
+part of Phase 6 — typical resolution is to raise their requirements
+to the T1 floor (~9-10) or move them to features.
 
 ---
 
