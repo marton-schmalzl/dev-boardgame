@@ -93,8 +93,8 @@ export const items: Item[] = [
     },
     {
         name: { en: 'Piggy bank' },
-        triggeredAbilities: [{ triggerTypes: ['DESTROY'], effect: { effectType: 'BUDGET', value: 3 } }],
-        text: { en: <span>➕<IconSpan><Icons.Budget size={14} /></IconSpan> Destroy this card to gain ➕<IconSpan><Icons.Budget size={14} /></IconSpan><IconSpan><Icons.Budget size={14} /></IconSpan><IconSpan><Icons.Budget size={14} /></IconSpan></span> },
+        triggeredAbilities: [{ triggerTypes: ['DESTROY'], effect: { effectType: 'BUDGET', value: 2 } }],
+        text: { en: <span>Destroy this card to gain ➕<IconSpan><Icons.Budget size={14} /></IconSpan><IconSpan><Icons.Budget size={14} /></IconSpan></span> },
         flavorText: {},
         cost: 2,
         skills: { creativity: 0, knowledge: 0, organization: 0 },
