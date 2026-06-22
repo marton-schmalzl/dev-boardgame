@@ -41,6 +41,13 @@ Format:
 
 ### Changed
 
+- `src/components/common/CardMetaBadges.tsx` — designer `?` / `!`
+  badges use a full circular **button** as the hover / focus target so
+  the native tooltip applies to the whole control, not only the glyph.
+- `src/pages/PlayableCardsPage.tsx`, `src/pages/AssignmentCardsPage.tsx`
+  — preview grids sort **playable** cards by **cost** (then stable
+  title/name tie-break) and **features** by **total required skill**
+  (sum of the three stats, then `cardNumber`).
 - `src/data/functional_contracts.tsx` — feature **balance**: story
   points aligned to `balance.md` §4.2–§4.3 (C-002 / C-011 / C-012 /
   C-017 5→4; C-007 5→6; C-025 3→5); C-021 organization requirement

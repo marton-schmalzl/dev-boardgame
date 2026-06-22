@@ -58,6 +58,26 @@ function haystackItem(i: Item): string {
     .toLowerCase();
 }
 
+function sortKeyPerson(p: Person): string {
+  return [translatedPlain(p.title), translatedPlain(p.name)].join('\u0000');
+}
+
+function sortPeopleByCost<T extends Person>(list: T[]): T[] {
+  return [...list].sort((a, b) => {
+    if (a.cost !== b.cost) return a.cost - b.cost;
+    return sortKeyPerson(a).localeCompare(sortKeyPerson(b), undefined, { sensitivity: 'base' });
+  });
+}
+
+function sortItemsByCost(list: Item[]): Item[] {
+  return [...list].sort((a, b) => {
+    if (a.cost !== b.cost) return a.cost - b.cost;
+    return translatedPlain(a.name).localeCompare(translatedPlain(b.name), undefined, {
+      sensitivity: 'base',
+    });
+  });
+}
+
 const PlayableCardsPage: React.FC = () => {
   const { printMode } = usePrintMode();
   const [group, setGroup] = useState<PlayableGroup>('all');
@@ -67,30 +87,38 @@ const PlayableCardsPage: React.FC = () => {
   const q = query.trim().toLowerCase();
 
   const filteredStarter = useMemo(() => {
-    return starter.filter((p) => !q || haystackPerson(p).includes(q));
+    return sortPeopleByCost(
+      starter.filter((p) => !q || haystackPerson(p).includes(q))
+    );
   }, [q]);
 
   const filteredProduction = useMemo(() => {
-    return employees.filter(
-      (p) =>
-        matchesLevel(p, level) && (!q || haystackPerson(p).includes(q))
+    return sortPeopleByCost(
+      employees.filter(
+        (p) =>
+          matchesLevel(p, level) && (!q || haystackPerson(p).includes(q))
+      )
     );
   }, [q, level]);
 
   const filteredAdmin = useMemo(() => {
-    return backoffice.filter(
-      (p) =>
-        matchesLevelPerson(p, level) &&
-        (!q || haystackPerson(p).includes(q))
+    return sortPeopleByCost(
+      backoffice.filter(
+        (p) =>
+          matchesLevelPerson(p, level) &&
+          (!q || haystackPerson(p).includes(q))
+      )
     );
   }, [q, level]);
 
   const filteredItems = useMemo(() => {
-    return items.filter((i) => !q || haystackItem(i).includes(q));
+    return sortItemsByCost(items.filter((i) => !q || haystackItem(i).includes(q)));
   }, [q]);
 
   const filteredPrestige = useMemo(() => {
-    return prestige_employees.filter((p) => !q || haystackPerson(p).includes(q));
+    return sortPeopleByCost(
+      prestige_employees.filter((p) => !q || haystackPerson(p).includes(q))
+    );
   }, [q]);
 
   const showStarter = group === 'all' || group === 'starter';

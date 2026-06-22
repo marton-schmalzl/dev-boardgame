@@ -35,6 +35,12 @@ function haystackFeature(f: Feature): string {
     .toLowerCase();
 }
 
+/** Sum of knowledge + creativity + organization (preview sort order). */
+function totalRequiredSkills(f: Feature): number {
+  const s = f.requiredSkills;
+  return s.knowledge + s.creativity + s.organization;
+}
+
 const AssignmentCardsPage: React.FC = () => {
   const { printMode } = usePrintMode();
   const [kind, setKind] = useState<AssignmentKind>('all');
@@ -46,13 +52,17 @@ const AssignmentCardsPage: React.FC = () => {
     [q]
   );
 
-  const feats = useMemo(
-    () =>
-      functional_contracts.filter(
-        (f) => !q || haystackFeature(f).includes(q)
-      ),
-    [q]
-  );
+  const feats = useMemo(() => {
+    const filtered = functional_contracts.filter(
+      (f) => !q || haystackFeature(f).includes(q)
+    );
+    return [...filtered].sort((a, b) => {
+      const ta = totalRequiredSkills(a);
+      const tb = totalRequiredSkills(b);
+      if (ta !== tb) return ta - tb;
+      return (a.cardNumber ?? '').localeCompare(b.cardNumber ?? '');
+    });
+  }, [q]);
 
   const showTech = kind === 'all' || kind === 'technologies';
   const showFeat = kind === 'all' || kind === 'features';
